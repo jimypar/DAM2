@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="tMainEtiqueta">Hola soy el texto principal</string>
+    <string name="bMainBotonPrimero">click aqui</string>
+    <string name="tMainEmail">hola</string>
+    <string name="strMail">Correo</string>
+    <string name="bMainSiguiente">Siguiente</string>
+    <string name="bSecondVolver">Volver</string>
+    <string name="bSecondSalir">Salir</string>
+    <string name="strAceptar">aceptar</string>
+</resources>

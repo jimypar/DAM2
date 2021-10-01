@@ -1,0 +1,10 @@
+package figuras;
+
+public abstract class Figura {
+	
+	private int x;
+	private int y;
+	
+	abstract int calcularArea();
+
+}

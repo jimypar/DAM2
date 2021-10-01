@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="clases.Zoo"/>
+<fullyQualifiedTypeName name="clases.GestorTrabajos"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="clases.GestorCuentas"/>
+<fullyQualifiedTypeName name="clases.CuentaCorriente"/>
+<fullyQualifiedTypeName name="clases.CuentaAhorro"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="java.io.Serializable"/>
+<fullyQualifiedTypeName name="java.sql.Time"/>
+<fullyQualifiedTypeName name="clases.Festival"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="clases.Artista"/>
+<fullyQualifiedTypeName name="clases.Concierto"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="clases.Asistente"/>
+</qualifiedTypeNameHistroy>

@@ -1,0 +1,9 @@
+package figuras;
+
+public abstract class Figura {
+	
+	ArrayList<int> cords = new ArrayList<>();
+	
+	abstract int calcularArea();
+
+}

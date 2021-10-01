@@ -1,0 +1,34 @@
+package figuras;
+
+public class Triangulo extends Figura {
+
+	private int altura;
+	private int base;
+	
+	public Triangulo(int x, int y, int altura, int base) {
+		super(x, y);
+		this.altura = altura;
+		this.base = base;
+	}
+
+	public Triangulo(int x, int y, int altura, int base) {
+		super(x, y);
+		this.altura = altura;
+		this.base = base;
+	}
+
+	@Override
+	public int calcularArea() {
+
+		return (base * altura) / 2;
+
+	}
+
+	@Override
+	void dibujar() {
+
+		System.out.println("Triangulo");
+
+	}
+
+}

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">InfoAmigos</string>
+    <string name="mainStrTextView">Info:</string>
+    <string name="strDeuda">Deuda:</string>
+    <string name="strBAdd">Add</string>
+    <string name="strBDetalles">Details</string>
+    <string name="strBDeuda">Deuda</string>
+    <string name="strNombre">Nombre:</string>
+    <string name="strEmail">Email:</string>
+    <string name="strTelefono">Telefono:</string>
+    <string name="StrMovil">Movil:</string>
+</resources>

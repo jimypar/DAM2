@@ -1,0 +1,68 @@
+package test1;
+
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Scale;
+import org.eclipse.swt.widgets.Group;
+import org.eclipse.swt.browser.Browser;
+
+public class Test extends Composite {
+	private Text text;
+	private Text text_1;
+
+	/**
+	 * Create the composite.
+	 * @param parent
+	 * @param style
+	 */
+	public Test(Composite parent, int style) {
+		super(parent, style);
+		setLayout(new GridLayout(2, false));
+		
+		Label lblNombre = new Label(this, SWT.NONE);
+		lblNombre.setText("Nombre: ");
+		
+		text = new Text(this, SWT.BORDER);
+		GridData gd_text = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_text.widthHint = 453;
+		text.setLayoutData(gd_text);
+		
+		Label lblApellido = new Label(this, SWT.NONE);
+		lblApellido.setText("Apellido: ");
+		
+		text_1 = new Text(this, SWT.BORDER);
+		GridData gd_text_1 = new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1);
+		gd_text_1.widthHint = 517;
+		text_1.setLayoutData(gd_text_1);
+		
+		Label label = new Label(this, SWT.NONE);
+		GridData gd_label = new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1);
+		gd_label.widthHint = 441;
+		label.setLayoutData(gd_label);
+		label.setText("New Label");
+		
+		Scale scale = new Scale(this, SWT.NONE);
+		GridData gd_scale = new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 1);
+		gd_scale.widthHint = 441;
+		scale.setLayoutData(gd_scale);
+		
+		Browser browser = new Browser(this, SWT.NONE);
+		browser.setTouchEnabled(true);
+		browser.setUrl("https://new.edmodo.com/home");
+		GridData gd_browser = new GridData(SWT.LEFT, SWT.CENTER, false, false, 2, 3);
+		gd_browser.heightHint = 173;
+		browser.setLayoutData(gd_browser);
+		
+		
+
+	}
+
+	@Override
+	protected void checkSubclass() {
+		// Disable the check that prevents subclassing of SWT components
+	}
+}
