@@ -18,6 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            app:srcCompat="@drawable/d"
             tools:srcCompat="@drawable/d" />
 
         <ImageView
@@ -25,6 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="2"
+            app:srcCompat="@drawable/d1"
             tools:srcCompat="@drawable/d1" />
     </LinearLayout>
 
@@ -39,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            app:srcCompat="@drawable/d2"
             tools:srcCompat="@drawable/d2" />
 
         <ImageView
@@ -46,6 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            app:srcCompat="@drawable/d3"
             tools:srcCompat="@drawable/d3" />
 
     </LinearLayout>
@@ -61,6 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="190dp"
             android:layout_weight="1"
+            app:srcCompat="@drawable/d4"
             tools:srcCompat="@drawable/d4" />
 
         <ImageView
@@ -68,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            app:srcCompat="@drawable/d5"
             tools:srcCompat="@drawable/d5" />
     </LinearLayout>
 

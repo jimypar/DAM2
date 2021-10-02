@@ -1,5 +1,11 @@
 package clases;
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -42,26 +48,79 @@ public class Festival {
 		this.conexion = conexion;
 	}
 
+	// registrar asistente concierto
 
-	//registrar asistente concierto
+	public void registrarAsistente(String dni, String codigo) {
+
+		if (compruebaAsistente(dni) && compruebaConcierto(codigo)) {
+
+			buscarConcierto(codigo).getListaAsistentes().add(buscarAsistente(dni));
+
+		}
+
+	}
 	
-	//listar artistas
+	//registrar artista concierto
 	
-	//listar asistentes
+	public void registrarArtista(String dni, String codigo) {
+
+		if (compruebaArtista(dni) && compruebaConcierto(codigo)) {
+
+			buscarConcierto(codigo).setArtista(buscarArtista(dni));
+
+		}
+
+	}
+
+	// listar artistas
+
+	public void listarArtistas() {
+
+		for (Personal artista : listaPersonal) {
+
+			if (artista instanceof Artista) {
+				System.out.println(artista.toString());
+			}
+
+		}
+
+	}
+
+	// listar asistentes
+
+	public void listarAsistentes() {
+
+		for (Personal asistente : listaPersonal) {
+
+			if (asistente instanceof Asistente) {
+
+				System.out.println(asistente.toString());
+
+			}
+
+		}
+
+	}
+
+	// guardar datos en fichero
 	
-	//guardar datos en fichero
 	
-	//cargar datos desde fichero
+
+	// cargar datos desde fichero
 	
-	//conecta BBDD
-	
-	//guardar artistas en BBDD
-	
-	//cargar asistentes desde BBDD
+
+	// conecta BBDD
 	
 	
+
+	// guardar artistas en BBDD
 	
 	
+
+	// cargar asistentes desde BBDD
+	
+	
+
 	// alta artista
 	public void altaArtista(String dni, String nombre, String estiloMusica, String cache) {
 
@@ -176,6 +235,5 @@ public class Festival {
 		return null;
 
 	}
-	
 
 }

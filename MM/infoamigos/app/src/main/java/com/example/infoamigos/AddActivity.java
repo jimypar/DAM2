@@ -11,6 +11,7 @@ import android.widget.ImageView;
 public class AddActivity extends AppCompatActivity implements View.OnClickListener{
 ImageView iv;
 final int CARGA_IMAGEN = 42;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +29,7 @@ final int CARGA_IMAGEN = 42;
 
         switch (view.getId()){
 
-            case (R.id.ivImage1):
+            case (R.id.iAdd):
                 Intent intent = new Intent(this, ImageActivity.class);
                 startActivityForResult(intent, CARGA_IMAGEN);
                 break;
