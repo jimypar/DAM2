@@ -1,0 +1,29 @@
+package ventana01;
+
+import javax.swing.JFrame;
+
+public class Ventana01 extends JFrame{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	
+
+	public Ventana01() {
+		
+		this.setTitle("Manuel");
+		this.setBounds(MAXIMIZED_HORIZ, MAXIMIZED_VERT , MAXIMIZED_HORIZ , MAXIMIZED_VERT);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Ventana01 ventana = new Ventana01();
+		ventana.setVisible(true);
+		
+	}
+
+}

@@ -4,4 +4,6 @@
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Display"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Shell"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.SWT"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="java.awt.Dimension"/>
 </qualifiedTypeNameHistroy>

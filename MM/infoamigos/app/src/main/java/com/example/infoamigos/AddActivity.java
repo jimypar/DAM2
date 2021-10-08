@@ -3,15 +3,23 @@ package com.example.infoamigos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.example.infoamigos.bd.Database;
+import com.example.infoamigos.util.Amigo;
 
 public class AddActivity extends AppCompatActivity implements View.OnClickListener{
 ImageView iv;
 final int CARGA_IMAGEN = 42;
-
+private Database db;
+Button botonAdd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +27,10 @@ final int CARGA_IMAGEN = 42;
 
         iv = findViewById(R.id.iAdd);
         iv.setOnClickListener(this);
+        db = new Database(this);
+
+        botonAdd = findViewById(R.id.bAddOk);
+        botonAdd.setOnClickListener(this);
 
 
     }
@@ -33,6 +45,22 @@ final int CARGA_IMAGEN = 42;
                 Intent intent = new Intent(this, ImageActivity.class);
                 startActivityForResult(intent, CARGA_IMAGEN);
                 break;
+
+            case (R.id.bAddOk):
+                Amigo amigo = new Amigo();
+                EditText editNombre=findViewById(R.id.tAddNombre);
+                amigo.setNombreApellidos(editNombre.getText().toString());
+                EditText editTlf=findViewById(R.id.tAddEmail);
+                amigo.setTlf(editTlf.getText().toString());
+                EditText editTlfMovil=findViewById(R.id.tAddMovil);
+                amigo.setTlfMovil(editTlfMovil.getText().toString());
+                EditText editDeuda = findViewById(R.id.tAddDeuda);
+                amigo.setDeudas(Float.valueOf(editDeuda.getText().toString()));
+                amigo.setFoto(((BitmapDrawable)iv.getDrawable()).getBitmap());
+                db.nuevoAmigo(amigo);
+                finish();
+                break;
+
 
         }
 

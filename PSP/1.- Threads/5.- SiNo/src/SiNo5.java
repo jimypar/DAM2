@@ -33,7 +33,7 @@ class Hilo extends Thread {
                     //Se espera el proceso hasta que reciba una notificación
                     getClass().wait();
                 } catch (InterruptedException e) {
-                    System.err.println("ERROR enel Try");
+                    System.err.println("ERROR en el Try");
                 }
             }
             //Se realiza una notificación a los procesos restantes

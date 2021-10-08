@@ -27,7 +27,7 @@ public class PruebaThreadSleep {
             //En cada iteracion se muestra el mensaje
             System.out.println("Dentro del Programa Principal : " + i);
             //En cada iteracion se hace una pequeña pausa
-            Thread.sleep(500);
+            Thread.sleep(1000);
         }
     }
 }

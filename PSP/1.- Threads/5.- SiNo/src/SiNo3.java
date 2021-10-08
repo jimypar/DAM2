@@ -41,9 +41,9 @@ public class SiNo3 {
     public static void main(String[] args) throws InterruptedException {
         SiNo3Thread s = new SiNo3Thread("SI");
         SiNo3Thread n = new SiNo3Thread("NO");
-        s.start();
-        n.join();
         n.start();
+        n.join();
+        s.start();
 
     }
 }

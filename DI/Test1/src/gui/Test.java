@@ -43,8 +43,8 @@ public class Test extends Composite {
 
 		Browser browser = new Browser(this, SWT.NONE);
 		browser.setTouchEnabled(true);
-		browser.setUrl("https://new.edmodo.com");
-		browser.setBounds(0, 0, 814, 477);
+		browser.setUrl("https://www.youtube.com");
+		browser.setBounds(0, 0, 633, 467);
 
 	}
 

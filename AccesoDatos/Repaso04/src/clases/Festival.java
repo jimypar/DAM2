@@ -1,11 +1,15 @@
 package clases;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,6 +23,8 @@ public class Festival {
 
 	public Festival() {
 		super();
+		this.listaConciertos = new ArrayList<Concierto>();
+		this.listaPersonal = new ArrayList<Personal>();
 	}
 
 	public Festival(ArrayList<Concierto> listaConciertos, ArrayList<Personal> listarPersonal, Connection conexion) {
@@ -48,191 +54,176 @@ public class Festival {
 		this.conexion = conexion;
 	}
 
-	// registrar asistente concierto
 
-	public void registrarAsistente(String dni, String codigo) {
-
-		if (compruebaAsistente(dni) && compruebaConcierto(codigo)) {
-
-			buscarConcierto(codigo).getListaAsistentes().add(buscarAsistente(dni));
-
-		}
-
-	}
-	
-	//registrar artista concierto
-	
-	public void registrarArtista(String dni, String codigo) {
-
-		if (compruebaArtista(dni) && compruebaConcierto(codigo)) {
-
-			buscarConcierto(codigo).setArtista(buscarArtista(dni));
-
-		}
-
-	}
-
-	// listar artistas
-
-	public void listarArtistas() {
-
-		for (Personal artista : listaPersonal) {
-
-			if (artista instanceof Artista) {
-				System.out.println(artista.toString());
-			}
-
-		}
-
-	}
-
-	// listar asistentes
-
-	public void listarAsistentes() {
-
-		for (Personal asistente : listaPersonal) {
-
-			if (asistente instanceof Asistente) {
-
-				System.out.println(asistente.toString());
-
-			}
-
-		}
-
-	}
-
-	// guardar datos en fichero
-	
-	
-
-	// cargar datos desde fichero
-	
-
-	// conecta BBDD
-	
-	
-
-	// guardar artistas en BBDD
-	
-	
-
-	// cargar asistentes desde BBDD
-	
-	
-
-	// alta artista
 	public void altaArtista(String dni, String nombre, String estiloMusica, String cache) {
-
-		if (!compruebaArtista(dni)) {
-
-			Artista artista = new Artista(dni, nombre, estiloMusica, Float.valueOf(cache));
-			Collections.sort(listaPersonal);
-			listaPersonal.add(artista);
-		}
-
-	}
-
-	// alta asistente
-	public void altaAsistente(String dni, String nombre, String fechaNacimiento, String nacionalidad) {
-
-		listaPersonal.add(new Asistente(dni, nombre, fechaNacimiento, nacionalidad));
+		Artista artista = new Artista(dni, nombre, estiloMusica, Float.valueOf(cache));
 		Collections.sort(listaPersonal);
-
+		listaPersonal.add(artista);
 	}
 
-	// alta concierto
+	public void altaAsistente(String dni, String nombre, String fechaNacimiento, String nacionalidad) {
+		Asistente asistente = new Asistente(dni, nombre, fechaNacimiento, nacionalidad);
+		Collections.sort(listaPersonal);
+		listaPersonal.add(asistente);
+	}
+
 	public void altaConcierto(String codigo, String nombre, String horaInicio, String dniArtista) {
-
-		if (!compruebaConcierto(codigo) && compruebaArtista(dniArtista)) {
-
-			listaConciertos.add(new Concierto(codigo, nombre, horaInicio, buscarArtista(dniArtista)));
+		if (compruebaConcierto(codigo) == false && compruebaArtista(dniArtista)) {
+			listaConciertos.add(new Concierto(codigo, nombre, horaInicio, devuelveArtista(dniArtista)));
 			Collections.sort(listaConciertos);
 		} else {
 			System.out.println("Error");
 		}
-
 	}
 
-	// Comprueba concierto
-	public boolean compruebaConcierto(String codigo) {
+	public Artista devuelveArtista(String dniArtista) {
+		for (Personal personal : listaPersonal) {
+			if (personal instanceof Artista) {
+				if (personal.getDni().equals(dniArtista)) {
+					return (Artista) personal;
+				}
+			}
+		}
+		return null;
+	}
 
+	public Asistente devuelveAsistente(String dni) {
+		for (Personal personal : listaPersonal) {
+			if (personal instanceof Asistente) {
+				if (personal.getDni().equals(dni)) {
+					return (Asistente) personal;
+				}
+			}
+		}
+		return null;
+	}
+
+	public Concierto devuelveConcierto(String codigo) {
+		for (Concierto concierto : listaConciertos) {
+			if (concierto.getCodigo().equals(codigo)) {
+				return concierto;
+			}
+		}
+		return null;
+	}
+
+	public boolean compruebaConcierto(String codigo) {
 		for (Concierto concierto : listaConciertos) {
 			if (concierto.getCodigo().equals(codigo)) {
 				return true;
 			}
 		}
 		return false;
-
 	}
 
-	// Comprueba artista
 	public boolean compruebaArtista(String dni) {
-
-		for (Personal artista : listaPersonal) {
-			if (artista instanceof Artista) {
-				if (artista.getDni().equals(dni)) {
+		for (Personal personal : listaPersonal) {
+			if (personal instanceof Artista) {
+				if (personal.getDni().equals(dni)) {
 					return true;
 				}
 			}
-
 		}
 		return false;
 	}
 
-	// Comprueba asistente
 	public boolean compruebaAsistente(String dni) {
-
-		for (Personal artista : listaPersonal) {
-			if (artista instanceof Asistente) {
-				if (artista.getDni().equals(dni)) {
+		for (Personal personal : listaPersonal) {
+			if (personal instanceof Asistente) {
+				if (personal.getDni().equals(dni)) {
 					return true;
 				}
 			}
-
 		}
 		return false;
 	}
 
-	public Artista buscarArtista(String dni) {
-
-		for (Personal artista : listaPersonal) {
-			if (artista instanceof Artista) {
-				if (artista.getDni().equals(dni)) {
-					return (Artista) artista;
-				}
-			}
-
+	public void registrarAsistenteConcierto(String codigoConcierto, String dniAsistente) {
+		if (compruebaAsistente(dniAsistente) && compruebaConcierto(codigoConcierto)) {
+			devuelveConcierto(codigoConcierto).getListaAsistentes().add(devuelveAsistente(dniAsistente));
+		} else {
+			System.out.println("Ha ocurrido un error");
 		}
-		return null;
-
 	}
 
-	public Asistente buscarAsistente(String dni) {
-
-		for (Personal asistente : listaPersonal) {
-			if (asistente instanceof Asistente) {
-				if (asistente.getDni().equals(dni)) {
-					return (Asistente) asistente;
-				}
+	public void listarArtistas() {
+		for (Personal personal : listaPersonal) {
+			if (personal instanceof Artista) {
+				System.out.println(personal);
 			}
-
 		}
-		return null;
-
 	}
 
-	public Concierto buscarConcierto(String dni) {
+	public void listarAsistente() {
+		for (Personal personal : listaPersonal) {
+			if (personal instanceof Asistente) {
+				System.out.println(personal);
+			}
+		}
+	}
 
-		for (Concierto concierto : listaConciertos) {
-			if (concierto instanceof Concierto) {
-				if (concierto.getCodigo().equals(dni)) {
-					return (Concierto) concierto;
+	public void guardarDatos() {
+		try {
+			ObjectOutputStream escritor = new ObjectOutputStream(new FileOutputStream(new File("src/datos.dat")));
+			escritor.writeObject(listaConciertos);
+			escritor.writeObject(listaPersonal);
+			escritor.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	@SuppressWarnings("unchecked")
+	public void cargarDatos() {
+		try {
+			ObjectInputStream cargar = new ObjectInputStream(new FileInputStream(new File("src/datos.dat")));
+			listaConciertos = (ArrayList<Concierto>) cargar.readObject();
+			listaPersonal = (ArrayList<Personal>) cargar.readObject();
+			cargar.close();
+		} catch (IOException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void conectarBBDD() {
+		String servidor = "jdbc:mysql://localhost:3307/festival3ev";
+		try {
+			conexion = (Connection) DriverManager.getConnection(servidor, "root", "");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void guardarArtistasBBDD(String estiloMusica) {
+		String query = "INSERT INTO artistas(dni, nombre, estilo, cache) VALUES(?,?,?,?)";
+		try {
+			PreparedStatement sentencia = conexion.prepareStatement(query);
+			for (Personal personal : listaPersonal) {
+				if (personal instanceof Artista && ((Artista) personal).getEstiloMusica().equals(estiloMusica)) {
+					sentencia.setString(1, personal.getDni());
+					sentencia.setString(2, personal.getNombre());
+					sentencia.setString(3, ((Artista) personal).getEstiloMusica());
+					sentencia.setFloat(4, ((Artista) personal).getCache());
+					sentencia.executeUpdate();
 				}
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public void cargarAsistentesBBDD(String nacionalidad) throws SQLException {
+
+		String query = "SELECT * FROM asistentes";
+		PreparedStatement sentencia = conexion.prepareStatement(query);
+		ResultSet rs = sentencia.executeQuery();
+
+		while (rs.next()) {
+			if (rs.getString(5).equals(nacionalidad)) {
+				listaPersonal.add(new Asistente(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
 			}
 
 		}
-		return null;
 
 	}
 
