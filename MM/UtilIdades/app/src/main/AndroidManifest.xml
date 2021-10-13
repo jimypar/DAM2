@@ -10,6 +10,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UtilIdades">
         <activity
+            android:screenOrientation="landscape"
+            android:name=".Conecta4Activity"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name=".ConversorActivity"
+            android:exported="true" />
+        <activity
+            android:name=".CalculadoraActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

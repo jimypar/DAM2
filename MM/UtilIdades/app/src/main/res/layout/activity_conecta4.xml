@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/cardview_dark_background"
+    tools:context=".Conecta4Activity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bA1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bA2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bA3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bA4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bA5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bA6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bA7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bB1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bB2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bB3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bB4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bB5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bB6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bB7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bC1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bC2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bC3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bC4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bC5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bC6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bC7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bD1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bD2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bD3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bD4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bD5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bD6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bD7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bE1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bE2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bE3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bE4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bE5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bE6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bE7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bF1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bF2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bF3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bF4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bF5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bF6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+            <Button
+                android:id="@+id/bF7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/round_button"
+                android:backgroundTint="@color/purple_500"
+                app:backgroundTint="@null"
+                tools:ignore="SpeakableTextPresentCheck" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
