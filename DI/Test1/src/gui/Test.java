@@ -11,6 +11,7 @@ import org.eclipse.swt.widgets.Scale;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.browser.Browser;
+import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.widgets.Link;
 
 public class Test extends Composite {
@@ -45,7 +46,6 @@ public class Test extends Composite {
 		browser.setTouchEnabled(true);
 		browser.setUrl("https://www.youtube.com");
 		browser.setBounds(0, 0, 633, 467);
-
 	}
 
 	@Override
