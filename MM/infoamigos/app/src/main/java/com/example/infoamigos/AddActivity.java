@@ -7,7 +7,9 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,7 +17,9 @@ import android.widget.ImageView;
 import com.example.infoamigos.bd.Database;
 import com.example.infoamigos.util.Amigo;
 
-public class AddActivity extends AppCompatActivity implements View.OnClickListener{
+import java.util.zip.Inflater;
+
+public class AddActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemLongClickListener {
 ImageView iv;
 final int CARGA_IMAGEN = 42;
 private Database db;
@@ -87,5 +91,20 @@ Button botonAdd;
             }
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+
+
+        return false;
     }
 }

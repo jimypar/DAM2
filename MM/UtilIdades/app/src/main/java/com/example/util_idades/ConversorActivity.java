@@ -102,7 +102,7 @@ public class ConversorActivity extends AppCompatActivity implements View.OnClick
 
     private void conversor() {
 
-        if (inputText!=null){
+        if (!inputText.getText().toString().equals("")){
 
             if (divisa1.getTag().equals(0)){
                 if (divisa2.getTag().equals(0)){

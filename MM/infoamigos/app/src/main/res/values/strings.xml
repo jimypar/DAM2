@@ -9,4 +9,8 @@
     <string name="strEmail">Email:</string>
     <string name="strTelefono">Telefono:</string>
     <string name="StrMovil">Movil:</string>
+    <string name="strAbout">Acerca de</string>
+    <string name="strConfig">Configuracion</string>
+    <string name="strBorrar">Borrar</string>
+    <string name="strDetalle">Detalle</string>
 </resources>
