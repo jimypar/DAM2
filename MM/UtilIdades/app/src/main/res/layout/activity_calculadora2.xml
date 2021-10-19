@@ -35,14 +35,14 @@
             android:layout_marginBottom="20dp"
             android:autofillHints="false"
             android:background="@null"
+            android:clickable="false"
             android:hint="@string/fakeHint"
             android:inputType="none"
+            android:longClickable="false"
             android:text="@string/display"
             android:textAlignment="center"
             android:textColor="@color/purple_200"
-            android:textSize="36sp"
-            android:longClickable="false"
-            android:clickable="false"/>
+            android:textSize="36sp" />
     </LinearLayout>
 
     <LinearLayout
@@ -91,29 +91,16 @@
                     android:textSize="24sp"
                     app:backgroundTint="@null" />
 
-                <Button
-                    android:id="@+id/parentheses"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="5dp"
+                <TextView
+                    android:id="@+id/tResult"
+                    android:layout_width="117dp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:background="@drawable/circle"
-                    android:text="@string/parentheses"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/exponent"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/circle"
-                    android:text="@string/percent"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:textColor="#A1A0A0"
+                    android:textSize="20dp" />
 
                 <Button
                     android:id="@+id/divide"
@@ -292,24 +279,12 @@
                 android:layout_height="match_parent">
 
                 <Button
-                    android:id="@+id/plusMinus"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="0dp"
-                    android:layout_height="70dp"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/circle"
-                    android:text="@string/plusMinus"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <Button
                     android:id="@+id/zero"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="0dp"
                     android:layout_height="70dp"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:background="@drawable/circle"
                     android:text="@string/zero"
                     android:textColor="#FFFFFF"

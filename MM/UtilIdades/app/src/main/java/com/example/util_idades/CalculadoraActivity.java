@@ -7,24 +7,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import org.mariuszgromada.math.mxparser.Expression;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CalculadoraActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText usersInputBox;
     private ImageButton backspace;
+    private TextView preResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calculadora2);
+        setContentView(R.layout.activity_calculadora);
         setupUI();
 
-
-        //clear all text in users input
         usersInputBox.setText("");
     }
 
@@ -114,18 +115,6 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
                 usersInputBox.setText("");
                 break;
 
-           case (R.id.exponent):
-                pos = usersInputBox.getSelectionStart();
-               usersInputBox.setText(updateText("^", usersInputBox.getText().toString(), usersInputBox.getSelectionStart()));
-               usersInputBox.setSelection(pos + 1);
-                break;
-
-           case (R.id.plusMinus):
-                pos = usersInputBox.getSelectionStart();
-               usersInputBox.setText(updateText("-", usersInputBox.getText().toString(), usersInputBox.getSelectionStart()));
-               usersInputBox.setSelection(pos + 1);
-                break;
-
            case (R.id.point):
                 pos = usersInputBox.getSelectionStart();
                usersInputBox.setText(updateText(".", usersInputBox.getText().toString(), usersInputBox.getSelectionStart()));
@@ -138,12 +127,18 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
                expression = expression.replaceAll("÷", "/");
                expression = expression.replaceAll("×", "*");
 
-               Expression exp = new Expression(expression);
+               String resultado;
 
-               String result = String.valueOf(exp.calculate());
+               try {
 
-               usersInputBox.setText(result);
-               usersInputBox.setSelection(result.length());
+               resultado = calcular(expression);
+
+                }catch (IndexOutOfBoundsException e){
+                   resultado = "Syntax Error";
+                }
+
+               usersInputBox.setText(resultado);
+               usersInputBox.setSelection(resultado.length());
                 break;
 
            case (R.id.divide):
@@ -170,50 +165,138 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
                usersInputBox.setSelection(pos + 1);
                 break;
 
-           case (R.id.parentheses):
-               pos = usersInputBox.getSelectionStart();
-               int openPar = 0;
-               int closedPar = 0;
-               int inboxLength = usersInputBox.getText().toString().length();
-
-               for (int i = 0; i < usersInputBox.getSelectionStart(); i++){
-                   if (usersInputBox.getText().toString().substring(i, i+1).equals("(")){
-                       openPar += 1;
-                   }
-                   else if (usersInputBox.getText().toString().substring(i, i+1).equals(")")){
-                       closedPar += 1;
-                   }
-               }
-
-               if (openPar == closedPar || usersInputBox.getText().toString().substring(
-                       inboxLength - 1, inboxLength).equals("(")){
-                   //usersInputBox.setText(String.format("%s%s", usersInputBox.getText().toString(), "("));
-                   usersInputBox.setText(updateText("(", usersInputBox.getText().toString(), usersInputBox.getSelectionStart()));
-               }
-               else if (closedPar < openPar && !usersInputBox.getText().toString().substring(
-                       inboxLength - 1, inboxLength).equals("(")){
-                   //usersInputBox.setText(String.format("%s%s", usersInputBox.getText().toString(), ")"));
-                   usersInputBox.setText(updateText(")", usersInputBox.getText().toString(), usersInputBox.getSelectionStart()));
-               }
-               usersInputBox.setSelection(pos + 1);
-                break;
-
 
 
         }
+
+        try {
+
+            String expression = usersInputBox.getText().toString();
+
+            expression = expression.replaceAll("÷", "/");
+            expression = expression.replaceAll("×", "*");
+
+            preResult.setText(calcular(expression));
+
+        }catch (IndexOutOfBoundsException e){
+            preResult.setText("");
+        }
+
+    }
+
+    private String calcular(String expression) {
+
+        char[] tokens = expression.toCharArray();
+        List<String> list = new ArrayList<>();
+
+        String s = "";
+
+        String operacion = "";
+        String num1 = "";
+        String num2 = "";
+
+        boolean operacionPendiente = false;
+
+        for (int i = 0; i < tokens.length; i++) {
+            if (Character.isDigit(tokens[i]) || tokens[i]=='.') {
+                s += Character.toString(tokens[i]);
+            } else {
+                list.add(s);
+                list.add(Character.toString(tokens[i]));
+
+                if (operacionPendiente) {
+                    operacionPendiente = false;
+                    num2 = s;
+
+                    list.set(list.lastIndexOf(num1), evaluar(num1, operacion, num2));
+                    list.remove(list.lastIndexOf(operacion));
+                    list.remove(list.lastIndexOf(num2));
+                }
+
+                if (tokens[i] == '*' || tokens[i] == '/') {
+                    operacionPendiente = true;
+
+                    operacion = Character.toString(tokens[i]);
+                    num1 = list.get(list.lastIndexOf(operacion) - 1);
+                }
+
+                s = "";
+            }
+
+            if (i == tokens.length - 1 && s.length() > 0) {
+                list.add(s);
+
+                if (list.get(list.size() - 2).equals("*") || list.get(list.size() - 2).equals("/")) {
+                    num1 = list.get(list.size() - 3);
+                    operacion = list.get(list.size() - 2);
+                    num2 = list.get(list.size() - 1);
+
+                    list.set(list.size() - 3, evaluar(num1, operacion, num2));
+                    list.remove(list.size() - 2);
+                    list.remove(list.size() - 1);
+                }
+            }
+        }
+
+
+
+            while (list.size() > 1) {
+                num1 = list.get(0);
+                operacion = list.get(1);
+                num2 = list.get(2);
+
+                list.set(0, evaluar(num1, operacion, num2));
+                list.remove(2);
+                list.remove(1);
+            }
+
+
+
+        return list.get(0);
+
+
+
+
+    }
+
+    private String evaluar(String a, String operator, String b) {
+
+        double r = 0;
+
+        try {
+            switch (operator) {
+                case "/":
+                    r += Double.parseDouble(a) / Double.parseDouble(b);
+                    break;
+                case "*":
+                    r += Double.parseDouble(a) * Double.parseDouble(b);
+                    break;
+                case "-":
+                    r += Double.parseDouble(a) - Double.parseDouble(b);
+                    break;
+                case "+":
+                    r += Double.parseDouble(a) + Double.parseDouble(b);
+                    break;
+            }
+        }catch(NumberFormatException e){
+            return "NaN";
+        }
+
+
+
+        return Double.toString(r);
 
     }
 
     private void setupUI(){
 
-        //sets up the user interface views
         usersInputBox = findViewById(R.id.textView);
-        //usersInputBox.setShowSoftInputOnFocus(false);   //used to prevent the users keyboard from popping up but keeps the carrot
+        usersInputBox.setShowSoftInputOnFocus(false);
+
+        preResult = findViewById(R.id.tResult);
 
         backspace = findViewById(R.id.backspace);
         Button btnClear = findViewById(R.id.clear);
-        Button btnPar = findViewById(R.id.parentheses);
-        Button btnExponent = findViewById(R.id.exponent);
         Button btnDivide = findViewById(R.id.divide);
         Button btnSeven = findViewById(R.id.seven);
         Button btnEight = findViewById(R.id.eight);
@@ -227,15 +310,12 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         Button btnTwo = findViewById(R.id.two);
         Button btnThree = findViewById(R.id.three);
         Button btnPlus = findViewById(R.id.add);
-        Button btnPlus_Minus = findViewById(R.id.plusMinus);
         Button btnZero = findViewById(R.id.zero);
         Button btnDecimal = findViewById(R.id.point);
         Button btnEqual = findViewById(R.id.equals);
 
         backspace.setOnClickListener(this);
         btnClear.setOnClickListener(this);
-        btnPar.setOnClickListener(this);
-        btnExponent.setOnClickListener(this);
         btnDivide.setOnClickListener(this);
         btnSeven.setOnClickListener(this);
         btnEight.setOnClickListener(this);
@@ -249,7 +329,6 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         btnTwo.setOnClickListener(this);
         btnThree.setOnClickListener(this);
         btnPlus.setOnClickListener(this);
-        btnPlus_Minus.setOnClickListener(this);
         btnZero.setOnClickListener(this);
         btnDecimal.setOnClickListener(this);
         btnEqual.setOnClickListener(this);

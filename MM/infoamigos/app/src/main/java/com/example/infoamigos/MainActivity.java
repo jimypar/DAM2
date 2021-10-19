@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.example.infoamigos.bd.Database;
 import com.example.infoamigos.util.Amigo;
+import com.example.infoamigos.util.AmigoAdapter;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ListView lvLista;
     Amigo amigoSeleccionado;
     TextView info;
+    AmigoAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,11 +45,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         db = new Database(this);
 
         listaAmigos = new ArrayList<>();
-        listaAmigos=db.getAmigos();
-
         lvLista= findViewById(R.id.lvListMain);
-        lvLista.setAdapter(new ArrayAdapter<Amigo>(
-                                this, android.R.layout.simple_list_item_1,listaAmigos));
+
+        //lvLista.setAdapter(new ArrayAdapter<Amigo>(
+             //                   this, android.R.layout.simple_list_item_1,listaAmigos));
 
         lvLista.setOnItemLongClickListener(this);
         registerForContextMenu(lvLista);
@@ -88,9 +89,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onResume() {
         super.onResume();
+
         listaAmigos=db.getAmigos();
-        lvLista.setAdapter(new ArrayAdapter<Amigo>(
-                this, android.R.layout.simple_list_item_1,listaAmigos));
+        adapter = new AmigoAdapter(this,listaAmigos);
+        lvLista.setAdapter(adapter);
+        //listaAmigos=db.getAmigos();
+        //lvLista.setAdapter(new ArrayAdapter<Amigo>(
+        //        this, android.R.layout.simple_list_item_1,listaAmigos));
     }
 
     @Override
