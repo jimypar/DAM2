@@ -36,8 +36,12 @@
     <string name="dolares">$(USD)</string>
     <string name="libra">£(GBP)</string>
     <string name="tMainConecta4">Conecta 4</string>
+<<<<<<< Updated upstream
     <string name="blueWins">El jugador azul ha ganado</string>
     <string name="redWins">El jugador rojo ha ganado</string>
     <string name="tied">Empate</string>
+=======
+    <string name="uno">1</string>
+>>>>>>> Stashed changes
 
 </resources>
