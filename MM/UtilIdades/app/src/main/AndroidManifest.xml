@@ -10,22 +10,50 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.UtilIdades">
         <activity
-            android:screenOrientation="landscape"
+            android:name=".wifizgz.MapaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".suscripciones.ImageSusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".suscripciones.AddSusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".suscripciones.SusActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listacompra.AddActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listacompra.DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listacompra.ImagesActivity"
+            android:exported="false" />
+        <activity
+            android:name=".listacompra.ListaActivity"
+            android:exported="false" />
+        <activity
             android:name=".Conecta4Activity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+            android:screenOrientation="landscape"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".ConversorActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
-            android:screenOrientation="portrait"
             android:name=".CalculadoraActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <activity
-            android:screenOrientation="portrait"
+            android:name=".PreferencesActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

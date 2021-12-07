@@ -1,6 +1,7 @@
 package com.example.util_idades;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -133,9 +135,11 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
 
                resultado = calcular(expression);
 
-                }catch (IndexOutOfBoundsException e){
+                }catch (IndexOutOfBoundsException e) {
                    resultado = "Syntax Error";
-                }
+               }catch (NumberFormatException e){
+                   resultado = "";
+               }
 
                usersInputBox.setText(resultado);
                usersInputBox.setSelection(resultado.length());
@@ -177,8 +181,12 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
             expression = expression.replaceAll("×", "*");
 
             preResult.setText(calcular(expression));
+            preResult.setTextColor(Color.GRAY);
+            preResult.setTextSize(40);
 
         }catch (IndexOutOfBoundsException e){
+            preResult.setText("");
+        }catch (NumberFormatException e){
             preResult.setText("");
         }
 
@@ -252,10 +260,25 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
 
 
 
-        return list.get(0);
+        return convertir(list.get(0));
 
 
+    }
 
+    private String convertir(String string) {
+
+
+        double num = Double.valueOf(string);
+        DecimalFormat df;
+
+        if (num%1==0){
+            df = new DecimalFormat("0");
+        } else {
+            df = new DecimalFormat("0.00");
+        }
+
+
+        return df.format(num);
 
     }
 
@@ -279,10 +302,8 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
                     break;
             }
         }catch(NumberFormatException e){
-            return "NaN";
+            return "";
         }
-
-
 
         return Double.toString(r);
 
@@ -294,6 +315,7 @@ public class CalculadoraActivity extends AppCompatActivity implements View.OnCli
         usersInputBox.setShowSoftInputOnFocus(false);
 
         preResult = findViewById(R.id.tResult);
+        preResult.setMaxHeight(preResult.getHeight());
 
         backspace = findViewById(R.id.backspace);
         Button btnClear = findViewById(R.id.clear);

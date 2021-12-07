@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/cardview_dark_background"
     android:orientation="vertical"
     tools:context=".ConversorActivity">
 
@@ -33,14 +32,11 @@
             android:layout_width="56dp"
             android:layout_height="108dp"
             android:layout_weight="1"
-            android:autoText="false"
             android:inputType="number"
-            android:text="@string/uno"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="30dp"
-            tools:ignore="SpeakableTextPresentCheck" />
+            android:textColor="?attr/colorSecondary"
+            android:textColorHint="?attr/colorSecondary"
+            android:textSize="30dp" />
 
         <Button
             android:id="@+id/bCash1"
@@ -49,7 +45,8 @@
             android:layout_weight="1"
             android:text="@string/euros"
             android:textSize="25dp"
-            app:cornerRadius="?attr/dialogPreferredPadding" />
+            app:cornerRadius="?attr/dialogPreferredPadding"
+            tools:ignore="DuplicateSpeakableTextCheck" />
 
     </LinearLayout>
 
@@ -71,10 +68,9 @@
             android:inputType="number"
             android:longClickable="false"
             android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textColorHint="@color/white"
-            android:textSize="30dp"
-            />
+            android:textColor="?attr/colorSecondary"
+            android:textColorHint="?attr/colorSecondary"
+            android:textSize="30dp" />
 
 
         <Button

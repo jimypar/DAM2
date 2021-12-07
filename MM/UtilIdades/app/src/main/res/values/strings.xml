@@ -36,12 +36,44 @@
     <string name="dolares">$(USD)</string>
     <string name="libra">£(GBP)</string>
     <string name="tMainConecta4">Conecta 4</string>
-<<<<<<< Updated upstream
     <string name="blueWins">El jugador azul ha ganado</string>
     <string name="redWins">El jugador rojo ha ganado</string>
     <string name="tied">Empate</string>
-=======
-    <string name="uno">1</string>
->>>>>>> Stashed changes
+    <string name="strConfiguracion">Configuracion</string>
+    <string name="strAbout">Acerca de</string>
+    <string name="mNocturno">Modo Claro</string>
+    <string name="tListaCompra">Lista Compra</string>
+    <string name="strDeuda">Cantidad:</string>
+    <string name="strBAnyadir">AÑADIR</string>
+    <string name="strBDetalle">DETALLE</string>
+    <string name="strBDeuda">PRECIO</string>
+    <string name="strNombre">Nombre:</string>
+    <string name="strBorrar">Borrar</string>
+    <string name="strDetalle">Detalle</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_addsus">AddsusActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="tMain5">Suscripciones</string>
+    <string name="strSuscripcion">Suscripción:</string>
+    <string name="strTiempo">Tiempo:</string>
+    <string name="unmes">1 MES</string>
+    <string name="tresmeses">3 MESES</string>
+    <string name="unanno">1 AÑO</string>
+    <string name="tTiempoRestante">Elige una suscripcion</string>
+    <string name="tAdd1m">Renovar 1 mes</string>
+    <string name="add1a">Renovar 1 año</string>
+    <string name="tAdd3m">Renovar 3 meses</string>
+    <string name="tMain6">Wifi Zaragoza</string>
+    <string name="txtIntroducirUsuario">Introducir nombre de usuario</string>
+    <string name="txtMostrarUsuario">Mostrar nombre de usuario</string>
+    <string name="strComprar">COMPRAR</string>
+
 
 </resources>

@@ -13,4 +13,9 @@
     <string name="strConfig">Configuracion</string>
     <string name="strBorrar">Borrar</string>
     <string name="strDetalle">Detalle</string>
+    <string name="strPreferenciaUsuario">Preferencias de usuario</string>
+    <string name="strPreferenciasApp">Preferencias de aplicacion</string>
+    <string name="strNombreUsuario">¿Como le llamamos?</string>
+    <string name="strMorosos">Morosos</string>
+    <string name="strCargarImagen">Cargar Imágenes desde galeria</string>
 </resources>

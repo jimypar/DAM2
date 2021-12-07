@@ -19,7 +19,7 @@ public class ConversorActivity extends AppCompatActivity implements View.OnClick
     private Button divisa1,divisa2,convertir;
     private EditText inputText;
     private TextView outputText;
-    private static DecimalFormat df = new DecimalFormat("0.00");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,127 +46,111 @@ public class ConversorActivity extends AppCompatActivity implements View.OnClick
     @Override
     public void onClick(View view) {
 
-            switch (view.getId()) {
+        switch (view.getId()){
 
-                case (R.id.bCash1):
+            case (R.id.bCash1):
 
-                        final int estadoDivisa1 = (Integer) view.getTag();
-                        switch (estadoDivisa1) {
-                            case 0:
-                                    divisa1.setText(R.string.dolares);
-                                    view.setTag(1);
-                                break;
-                            case 1:
-                                    divisa1.setText(R.string.libra);
-                                    view.setTag(2);
-                                break;
-                            case 2:
-                                    divisa1.setText(R.string.euros);
-                                    view.setTag(0);
-                                break;
-                        }
-                        conversor();
-                    break;
+                final int estadoDivisa1 = (Integer) view.getTag();
+                switch (estadoDivisa1){
+                    case 0:
+                        divisa1.setText(R.string.dolares);
+                        view.setTag(1);
+                        break;
+                    case 1:
+                        divisa1.setText(R.string.libra);
+                        view.setTag(2);
+                        break;
+                    case 2:
+                        divisa1.setText(R.string.euros);
+                        view.setTag(0);
+                        break;
+                }
+                conversor();
+                break;
 
-                case (R.id.bCash2):
+            case (R.id.bCash2):
 
-                    if (!inputText.getText().equals("")) {
+                final int estadoDivisa2 = (Integer) view.getTag();
+                switch (estadoDivisa2){
+                    case 0:
+                        divisa2.setText(R.string.dolares);
+                        view.setTag(1);
+                        break;
+                    case 1:
+                        divisa2.setText(R.string.libra);
+                        view.setTag(2);
+                        break;
+                    case 2:
+                        divisa2.setText(R.string.euros);
+                        view.setTag(0);
+                        break;
+                }
+                conversor();
+                break;
 
-                        final int estadoDivisa2 = (Integer) view.getTag();
-                        switch (estadoDivisa2) {
-                            case 0:
-                                    divisa2.setText(R.string.dolares);
-                                    view.setTag(1);
-                                break;
-                            case 1:
-                                    divisa2.setText(R.string.libra);
-                                    view.setTag(2);
-                                break;
-                            case 2:
-                                    divisa2.setText(R.string.euros);
-                                    view.setTag(0);
-                                break;
-                        }
-                        conversor();
+            case (R.id.bConvertir):
 
-                    }
-                    break;
+                conversor();
 
-                case (R.id.bConvertir):
-
-                        conversor();
-
-                    break;
+                break;
 
 
-            }
+
+        }
 
     }
 
     private void conversor() {
 
-<<<<<<< Updated upstream
         if (!inputText.getText().toString().equals("")){
-=======
->>>>>>> Stashed changes
 
-
-            if (divisa1.getTag().equals(0)) {
-                if (divisa2.getTag().equals(0)) {
-                    outputText.setText(inputText.getText() + "€");
+            if (divisa1.getTag().equals(0)){
+                if (divisa2.getTag().equals(0)){
+                    outputText.setText(inputText.getText()+"€");
                 }
-                if (divisa2.getTag().equals(1)) {
-                    outputText.setText(convertir(inputText.getText(), 1.16, "$"));
+                if (divisa2.getTag().equals(1)){
+                    outputText.setText(convertir(inputText.getText(),1.16,"$"));
                 }
-                if (divisa2.getTag().equals(2)) {
-                    outputText.setText(convertir(inputText.getText(), 0.85, "£"));
+                if (divisa2.getTag().equals(2)){
+                    outputText.setText(convertir(inputText.getText(),0.85,"£"));
                 }
             }
 
-            if (divisa1.getTag().equals(1)) {
-                if (divisa2.getTag().equals(0)) {
-                    outputText.setText(convertir(inputText.getText(), 0.86, "€"));
+            if (divisa1.getTag().equals(1)){
+                if (divisa2.getTag().equals(0)){
+                    outputText.setText(convertir(inputText.getText(),0.86,"€"));
                 }
-                if (divisa2.getTag().equals(1)) {
-                    outputText.setText(inputText.getText() + "$");
+                if (divisa2.getTag().equals(1)){
+                    outputText.setText(inputText.getText()+"$");
                 }
-                if (divisa2.getTag().equals(2)) {
-                    outputText.setText(convertir(inputText.getText(), 0.73, "£"));
-                }
-            }
-
-            if (divisa1.getTag().equals(2)) {
-                if (divisa2.getTag().equals(0)) {
-                    outputText.setText(convertir(inputText.getText(), 1.18, "€"));
-                }
-                if (divisa2.getTag().equals(1)) {
+                if (divisa2.getTag().equals(2)){
                     //Error
-                    outputText.setText(convertir(inputText.getText(), 1.36, "$"));
+                    outputText.setText(convertir(inputText.getText(),0.73,"£"));
                 }
-                if (divisa2.getTag().equals(2)) {
-                    outputText.setText(inputText.getText() + "£");
+            }
+
+            if (divisa1.getTag().equals(2)){
+                if (divisa2.getTag().equals(0)){
+                    outputText.setText(convertir(inputText.getText(),1.18,"€"));
+                }
+                if (divisa2.getTag().equals(1)){
+                    //Error
+                    outputText.setText(convertir(inputText.getText(),1.36,"$"));
+                }
+                if (divisa2.getTag().equals(2)){
+                    outputText.setText(inputText.getText()+"£");
                 }
             }
 
 
-
+        }
     }
 
     private String convertir(Editable text, double v,String signo) {
 
-        if (!inputText.getText().toString().equals("")){
+        DecimalFormat df = new DecimalFormat("0.00");
 
-            return String.valueOf(df.format(Integer.valueOf(String.valueOf(text))*v))+String.valueOf(signo);
-
-        }else {
-
-            return ""+String.valueOf(signo);
-
-        }
-
-
-
-
+        return String.valueOf(df.format(Integer.valueOf(String.valueOf(text))*v))+String.valueOf(signo);
 
     }
 
@@ -174,7 +158,7 @@ public class ConversorActivity extends AppCompatActivity implements View.OnClick
     @Override
     public boolean onKey(View view, int i, KeyEvent keyEvent) {
 
-            conversor();
+        conversor();
 
         return false;
     }

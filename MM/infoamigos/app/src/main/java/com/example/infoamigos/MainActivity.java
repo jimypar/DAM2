@@ -1,9 +1,12 @@
 package com.example.infoamigos;
 
+import static android.preference.PreferenceManager.getDefaultSharedPreferences;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -12,29 +15,35 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.infoamigos.bd.Database;
 import com.example.infoamigos.util.Amigo;
 import com.example.infoamigos.util.AmigoAdapter;
+import com.example.infoamigos.util.DetailActivity;
 
 import java.util.ArrayList;
 import java.util.zip.Inflater;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemLongClickListener {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemLongClickListener, AdapterView.OnItemClickListener {
 
-    Button add;
+    Button add,deuda,detalle;
     private Database db;
     ArrayList<Amigo> listaAmigos;
     ListView lvLista;
     Amigo amigoSeleccionado;
     TextView info;
+    EditText tDeuda;
     AmigoAdapter adapter;
+    SharedPreferences prefs;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        prefs=getDefaultSharedPreferences(this);
         setContentView(R.layout.activity_main);
 
         add = findViewById(R.id.bMainAdd);
@@ -51,9 +60,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
              //                   this, android.R.layout.simple_list_item_1,listaAmigos));
 
         lvLista.setOnItemLongClickListener(this);
+        lvLista.setOnItemClickListener(this);
         registerForContextMenu(lvLista);
 
-
+        tDeuda = findViewById(R.id.tMainDeuda);
+        deuda = findViewById(R.id.bDeudaMain);
+        deuda.setOnClickListener(this);
+        detalle = findViewById(R.id.bMainDetalle);
+        detalle.setOnClickListener(this);
     }
 
     @Override
@@ -81,6 +95,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent i = new Intent(this, AddActivity.class);
                 startActivity(i);
                 break;
+            case R.id.bDeudaMain:
+                if (deuda.getText()!=null) {
+                    Float deuda = Float.parseFloat(tDeuda.getText().toString());
+                    listaAmigos = db.getDeudores(deuda);
+                    adapter = new AmigoAdapter(this, listaAmigos);
+                    lvLista.setAdapter(adapter);
+                }
+                break;
+            case R.id.bMainDetalle:
+                Intent intent = new Intent(this, DetailActivity.class);
+                amigoSeleccionado.putExtraAmigo(intent);
+                startActivity(intent);
+                break;
 
         }
 
@@ -90,7 +117,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         super.onResume();
 
-        listaAmigos=db.getAmigos();
+        if (prefs.getBoolean("morosos",false)){
+            listaAmigos=db.getAmigos();
+        }else{
+            listaAmigos = db.getAmigos();
+        }
+
         adapter = new AmigoAdapter(this,listaAmigos);
         lvLista.setAdapter(adapter);
         //listaAmigos=db.getAmigos();
@@ -139,13 +171,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-            case R.id.menu_config:
+            case R.id.menu_configuracion:
+                Intent i = new Intent(this,PreferencesActivity.class);
+                startActivity(i);
                 break;
             case R.id.menu_about:
-
+                Toast.makeText(this,"Aplicacion desarrollada por Jaime", Toast.LENGTH_LONG).show();
                 break;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+        onItemLongClick(adapterView,view,i,l);
+
     }
 }

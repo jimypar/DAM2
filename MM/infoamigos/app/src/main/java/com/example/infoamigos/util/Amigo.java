@@ -1,5 +1,6 @@
 package com.example.infoamigos.util;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 
 public class Amigo {
@@ -67,5 +68,14 @@ public class Amigo {
 
     public void setDeudas(float deudas) {
         this.deudas = deudas;
+    }
+
+    public Intent putExtraAmigo(Intent i){
+        i.putExtra("NOMBRE",this.getNombreApellidos());
+        i.putExtra("MAIL",this.getEmail());
+        i.putExtra("FIJO",this.getTlf());
+        i.putExtra("MOVIL",this.getTlfMovil());
+        i.putExtra("DEUDA",this.getDeudas());
+        return i;
     }
 }

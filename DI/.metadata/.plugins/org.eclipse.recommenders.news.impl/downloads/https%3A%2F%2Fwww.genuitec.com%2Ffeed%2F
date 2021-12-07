@@ -12,7 +12,7 @@
 	<atom:link href="https://www.genuitec.com/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.genuitec.com</link>
 	<description>The Cloud Control Company</description>
-	<lastBuildDate>Fri, 24 Sep 2021 13:28:40 +0000</lastBuildDate>
+	<lastBuildDate>Wed, 17 Nov 2021 15:44:35 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,59 @@
 	1	</sy:updateFrequency>
 	
 	<item>
+		<title>CodeTogether 5.0.1—FIXES, Fixes, fixes</title>
+		<link>https://www.genuitec.com/codetogether-5-0-1-fixes-fixes-fixes/</link>
+		
+		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
+		<pubDate>Wed, 17 Nov 2021 15:44:35 +0000</pubDate>
+				<category><![CDATA[CodeTogether]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[In Product]]></category>
+		<guid isPermaLink="false">https://www.genuitec.com/?p=677182</guid>
+
+					<description><![CDATA[<p>CodeTogether 5.0.1 is a maintenance release with improvements to core areas like simultaneous typing and content assist.</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/codetogether-5-0-1-fixes-fixes-fixes/">CodeTogether 5.0.1—FIXES, Fixes, fixes</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>CodeTogether 5 with Audio &#038; Video</title>
+		<link>https://www.genuitec.com/codetogether-5-with-audio-video/</link>
+		
+		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
+		<pubDate>Thu, 28 Oct 2021 17:05:01 +0000</pubDate>
+				<category><![CDATA[CodeTogether]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<category><![CDATA[In Product]]></category>
+		<guid isPermaLink="false">https://www.genuitec.com/?p=676823</guid>
+
+					<description><![CDATA[<p>CodeTogether 5 now includes integrated communication tools including audio, video, screen sharing, text chat and polls.</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/codetogether-5-with-audio-video/">CodeTogether 5 with Audio &#038; Video</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>CodeTogether 5 with Audio &#038; Video—Sneak Peek</title>
+		<link>https://www.genuitec.com/codetogether-5-with-audio-video-sneak-peek/</link>
+		
+		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
+		<pubDate>Wed, 20 Oct 2021 17:59:38 +0000</pubDate>
+				<category><![CDATA[CodeTogether]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<guid isPermaLink="false">https://www.genuitec.com/?p=676692</guid>
+
+					<description><![CDATA[<p>CodeTogether 5 with audio and video calling, text chat and screen sharing is coming soon! Here's a sneak peek.</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/codetogether-5-with-audio-video-sneak-peek/">CodeTogether 5 with Audio &#038; Video—Sneak Peek</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
 		<title>CodeTogether 4.2—Write/Run Tests for TDD and Extreme Free Usage</title>
 		<link>https://www.genuitec.com/codetogether-4-2/</link>
 		
@@ -210,10 +263,10 @@
 ]]></description>
 		
 		
-		<enclosure url="https://resources.cloud.genuitec.com/wp-content/uploads/2020/10/ide_to_ide990.mp4" length="3988140" type="video/mp4" />
-<enclosure url="https://resources.cloud.genuitec.com/wp-content/uploads/2020/10/ide_to_ide990.webm" length="3524625" type="video/webm" />
-<enclosure url="https://resources.cloud.genuitec.com/wp-content/uploads/2020/10/ide_to_ide_lq2.mp4" length="3348518" type="video/mp4" />
-<enclosure url="https://resources.cloud.genuitec.com/wp-content/uploads/2020/10/ide_to_ide.webm" length="2256232" type="video/webm" />
+		<enclosure url="https://www.genuitec.com/wp-content/uploads/2020/10/ide_to_ide990.mp4" length="3988140" type="video/mp4" />
+<enclosure url="https://www.genuitec.com/wp-content/uploads/2020/10/ide_to_ide990.webm" length="3524625" type="video/webm" />
+<enclosure url="https://www.genuitec.com/wp-content/uploads/2020/10/ide_to_ide_lq2.mp4" length="3348518" type="video/mp4" />
+<enclosure url="https://www.genuitec.com/wp-content/uploads/2020/10/ide_to_ide.webm" length="2256232" type="video/webm" />
 
 			</item>
 		<item>
@@ -232,66 +285,5 @@
 		
 		
 			</item>
-		<item>
-		<title>10 Steps to a Secure Remote Development Environment</title>
-		<link>https://www.genuitec.com/10-steps-to-a-secure-remote-development-environment/</link>
-		
-		<dc:creator><![CDATA[eligiom]]></dc:creator>
-		<pubDate>Wed, 02 Sep 2020 18:28:03 +0000</pubDate>
-				<category><![CDATA[Genuitec]]></category>
-		<guid isPermaLink="false">https://www.genuitec.com/?p=662605</guid>
-
-					<description><![CDATA[<p>Many companies are transitioning to a remote development environment and security is a major concern. Follow these ten steps for a more secure remote development environment.</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/10-steps-to-a-secure-remote-development-environment/">10 Steps to a Secure Remote Development Environment</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		
-		
-		
-			</item>
-		<item>
-		<title>CodeTogether 2.1 is Here with Popular Feature Requests</title>
-		<link>https://www.genuitec.com/codetogether-2-1-is-here/</link>
-		
-		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
-		<pubDate>Thu, 06 Aug 2020 20:38:01 +0000</pubDate>
-				<category><![CDATA[CodeTogether]]></category>
-		<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[In Product]]></category>
-		<guid isPermaLink="false">https://www.genuitec.com/?p=661753</guid>
-
-					<description><![CDATA[<p>CodeTogether 2.1 adds highlighting for additional languages (Elixir, Dart, and COBOL), the ability to upload files to the host, and the ability to choose which resources can be seen. Also, key fixes included one highly recommended for IntelliJ users that use the Coding Alone mode.</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/codetogether-2-1-is-here/">CodeTogether 2.1 is Here with Popular Feature Requests</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		
-		
-		
-			</item>
-		<item>
-		<title>CodeMix 2020.7.22 &#8211; Angular 10 and Quasar in Eclipse</title>
-		<link>https://www.genuitec.com/codemix-2020-7-22-angular-10-quasar/</link>
-		
-		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
-		<pubDate>Wed, 22 Jul 2020 19:55:49 +0000</pubDate>
-				<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[In Product]]></category>
-		<guid isPermaLink="false">https://www.genuitec.com/?p=661240</guid>
-
-					<description><![CDATA[<p>CodeMix 2020.7.22 adds support for Angular 10, Quasar (a new Vue.js based framework), and includes key fixes that keep CodeMix running smoothly with the latest versions of Eclipse.</p>
-<p>The post <a rel="nofollow" href="https://www.genuitec.com/codemix-2020-7-22-angular-10-quasar/">CodeMix 2020.7.22 &#8211; Angular 10 and Quasar in Eclipse</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		
-		
-		
-			</item>
 	</channel>
 </rss>
-
-<!--
-Performance optimized by W3 Total Cache. Learn more: https://www.boldgrid.com/w3-total-cache/
-
-Object Caching 46/204 objects using disk
-Page Caching using disk: enhanced (Requested URI is rejected) 
-Content Delivery Network via resources.cloud.genuitec.com
-
-Served from: www.genuitec.com @ 2021-10-06 00:17:47 by W3 Total Cache
--->
