@@ -9,7 +9,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
     private Cliente cliente;
     JButton b00,b01,b02,b10,b11,b12,b20,b21,b22;
 
-    private ClienteGUI() {
+    ClienteGUI(int x,int y) {
 
         super("Cliente");
 
@@ -57,7 +57,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
 
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(300,300);
+        setBounds(x,y,300,300);
         setVisible(true);
 
         cliente = new Cliente("localhost", 4444, this);
@@ -125,7 +125,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
 
 
     public static void main(String[] args) {
-        new ClienteGUI();
+        new ClienteGUI(300,300);
     }
 
 
@@ -172,7 +172,11 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
                 b22.setText(ficha);
                 break;
             case "victoria":
-                JOptionPane.showMessageDialog(null,"EL JUGADOR"+separador[0]+"HA GANADO");
+                JOptionPane.showMessageDialog(null,"EL JUGADOR "+separador[0]+" HA GANADO");
+                System.exit(0);
+            case "empate":
+                JOptionPane.showMessageDialog(null,"EMPATE");
+                System.exit(0);
         }
     }
 

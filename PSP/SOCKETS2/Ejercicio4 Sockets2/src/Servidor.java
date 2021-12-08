@@ -28,6 +28,10 @@ public class Servidor {
         try
         {
             ServerSocket serverSocket = new ServerSocket(puerto);
+
+            ClienteGUI cliente1 = new ClienteGUI(300,300);
+            ClienteGUI cliente2 = new ClienteGUI(600,300);
+
             while(continuar){
                 Socket socket = serverSocket.accept();
 
@@ -146,7 +150,11 @@ public class Servidor {
                 }
                 pintarMatriz(mensaje,id);
                 if (calcularVictoria(id)){
+                    enviarTodos(id+":"+mensaje);
                     return id+":victoria";
+                }else if(calcularEmpate()){
+                    enviarTodos(id+":"+mensaje);
+                    return id+":empate";
                 }else {
                     return id+":"+mensaje;
                 }
@@ -154,6 +162,20 @@ public class Servidor {
         }
 
         return "";
+
+    }
+
+    private boolean calcularEmpate() {
+
+        for (int i=0;i<tablero.length;i++){
+            for (int j=0;j<tablero.length;j++){
+                if (tablero[i][j]==0) {
+                    return false;
+                }
+            }
+        }
+
+        return true;
 
     }
 
@@ -169,34 +191,42 @@ public class Servidor {
                 if (tablero[0][1]==0){
                     return true;
                 }
+                break;
             case "02":
                 if (tablero[0][2]==0){
                     return true;
                 }
+                break;
             case "10":
                 if (tablero[1][0]==0){
                     return true;
                 }
+                break;
             case "11":
                 if (tablero[1][1]==0){
                     return true;
                 }
+                break;
             case "12":
                 if (tablero[1][2]==0){
                     return true;
                 }
+                break;
             case "20":
                 if (tablero[2][0]==0){
                     return true;
                 }
+                break;
             case "21":
                 if (tablero[2][1]==0){
                     return true;
                 }
+                break;
             case "22":
                 if (tablero[2][2]==0){
                     return true;
                 }
+                break;
         }
 
         return false;
