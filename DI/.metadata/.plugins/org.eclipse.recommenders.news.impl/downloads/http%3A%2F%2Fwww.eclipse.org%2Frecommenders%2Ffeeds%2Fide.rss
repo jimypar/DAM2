@@ -135,6 +135,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><a href="http://archive.eclipse.org/archived_projects/edje.tgz">IOT Edje</a> project.  Archived: November 2018</p>
         <p><a href="http://archive.eclipse.org/archived_projects/esl.tgz">ESL</a> project.  Archived: January 2012</p>
         <p><a href="http://archive.eclipse.org/archived_projects/emfindex.tgz">EMFindex</a> project.  Archived: July 2012</p>
+        <p><a href="http://archive.eclipse.org/archived_projects/eplmp.tgz">Polarsys EPLMP</a> project.  Archived: December 2021</p>
         <p><a href="http://archive.eclipse.org/archived_projects/ercp.tgz">ERCP</a> project.  Archived: December 2012</p>
         <p><a href="http://archive.eclipse.org/archived_projects/examples.tgz">Examples</a> project.  Archived: January 2014</p>
         <p><a href="http://archive.eclipse.org/archived_projects/emf-facet.tgz">EMF Facet</a> project.  Archived: May 2020</p>
@@ -154,6 +155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><a href="http://archive.eclipse.org/archived_projects/hip.tgz">Hip</a> project.  Archived: August 2019</p>
         <p><a href="http://archive.eclipse.org/archived_projects/hudson.tgz">Hudson</a> project.  Archived: February 2021</p>
         <p><a href="http://archive.eclipse.org/archived_projects/iam.tgz">Iam</a> project.  Archived: January 2012</p>
+        <p><a href="http://archive.eclipse.org/archived_projects/ignite.tgz">Ignite</a> project.  Archived: November 2021</p>
         <p><a href="http://archive.eclipse.org/archived_projects/incquery.tgz">Incquery</a> project.  Archived: February 2016</p>
         <p><a href="http://archive.eclipse.org/archived_projects/imm.tgz">IMM</a> project.  Archived: January 2015</p>
         <p><a href="http://archive.eclipse.org/archived_projects/ide4edu.tgz">IDE4EDU</a> project.  Archived: January 2014</p>
@@ -218,6 +220,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p><a href="http://archive.eclipse.org/archived_projects/stardust.tgz">Stardust</a> project.  Archived: November 2017 </p>
         <p><a href="http://archive.eclipse.org/archived_projects/stp.tgz">STP</a> project.  Archived: September 2012 </p>
         <p><a href="http://archive.eclipse.org/archived_projects/swordfish.tgz">Swordfish</a> project.  Archived: January 2014 </p>
+        <p><a href="http://archive.eclipse.org/archived_projects/systemfocus.tgz">Systemfocus</a> project.  Archived: December 2021 </p>
         <p><a href="http://archive.eclipse.org/archived_projects/tcs.tgz" alt="TCS archive" >TCS</a> project. Archived: November 2012.</p>
         <p><a href="http://archive.eclipse.org/archived_projects/temporality.tgz" alt="Temporality archive" >Temporality</a> project. Archived: November 2012.</p>
         <p><a href="http://archive.eclipse.org/archived_projects/tmw.tgz">TMW</a> project.  Archived: March 2012 </p>
@@ -241,7 +244,121 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <aside class="main-sidebar-default-margin" id="main-sidebar">
     
     <ul class="ul-left-nav fa-ul hidden-print" id="leftnav" role="tablist" aria-multiselectable="true">
-                                                  <li>
+                                    <li class="separator">
+              <a class="separator" href="/projects/">
+                Eclipse Projects              </a>
+            </li>
+          
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/dev_process">Development Process</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/handbook">Project Handbook</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="https://projects.eclipse.org">Search Projects</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/tools/hierarchy.php">All Projects</a>
+              </li>
+                      
+                                            <li class="separator">
+              <a class="separator">
+                Lifecycle              </a>
+            </li>
+                                                                    <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/project_activity.php">Activity</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/tools/proposals.php">Proposals</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/tools/reviews.php">Reviews</a>
+              </li>
+                      
+                                            <li class="separator">
+              <a class="separator" href="/projects/">
+                Eclipse Specifications              </a>
+            </li>
+          
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/efsp">Specification Process</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/projects/efsp/operations.php">Operations Guide</a>
+              </li>
+                      
+                                            <li class="separator">
+              <a class="separator" href="/org/workinggroups">
+                Working Groups              </a>
+            </li>
+          
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/org/workinggroups/industry_wg_process.php">Process</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/org/workinggroups/operations.php">Operations Guide</a>
+              </li>
+                      
+                                            <li class="separator">
+              <a class="separator" href="/legal/">
+                Legal              </a>
+            </li>
+          
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/org/documents/Eclipse_IP_Policy.pdf">Intellectual Property Policy</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/legal/ECA.php">Contributor Agreement</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/contribute/cla">ECA Validation Tool</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/legal/epl-2.0">EPL-2.0</a>
+              </li>
+                      
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/legal/licenses.php">3rd Party Licenses</a>
+              </li>
+                      
+                                            <li class="separator">
+              <a class="separator" href="index.php">
+                Eclipse Foundation              </a>
+            </li>
+          
+                                                          <li>
+                <i class="fa fa-caret-right fa-fw"></i>
+                <a href="/org/foundation/contact.php">Contact Us</a>
+              </li>
+                      
+                                                          <li>
                 <i class="fa fa-caret-right fa-fw"></i>
                 <a href="http://www.eclipse.org">Home</a>
               </li>

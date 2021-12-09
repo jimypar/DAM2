@@ -2,6 +2,7 @@ package main;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -9,6 +10,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
@@ -24,6 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 public class InicioSesion extends JFrame implements WindowListener {
 
@@ -42,7 +45,6 @@ public class InicioSesion extends JFrame implements WindowListener {
 	private void introducirProductos() {
 
 		usuarios.add(new Usuario("user","1234"));
-		usuarios.add(new Usuario("dannyEST","root"));
 
 	}
 
@@ -71,6 +73,8 @@ public class InicioSesion extends JFrame implements WindowListener {
 		JPanel panellogin = new JPanel(new GridBagLayout());
 		panellogin.setBackground(Color.WHITE);
 		GridBagConstraints config = new GridBagConstraints();
+		
+		config.insets = new Insets(3,3,3,3);
 		
 		config.gridx = 0;
 		config.gridy = 0;
@@ -107,6 +111,9 @@ public class InicioSesion extends JFrame implements WindowListener {
 		
 		JButton entrar = new JButton();
 		entrar.setText("ENTRAR");
+		entrar.setBackground(new Color(128,0,128));
+		entrar.setForeground(Color.WHITE);
+		entrar.setBorderPainted(false);
 		panellogin.add(entrar,config);
 		
 		config.gridx = 0;
@@ -115,6 +122,9 @@ public class InicioSesion extends JFrame implements WindowListener {
 		
 		JButton registrar = new JButton();
 		registrar.setText("REGISTRARSE");
+		registrar.setBackground(new Color(128,0,128));
+		registrar.setForeground(Color.WHITE);
+		registrar.setBorderPainted(false);
 		
 		
 		
@@ -232,5 +242,11 @@ public class InicioSesion extends JFrame implements WindowListener {
 		// TODO Auto-generated method stub
 
 	}
+	
 
+	
+	
 }
+
+
+

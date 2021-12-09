@@ -103,6 +103,9 @@ public class PantallaPrincipal extends JFrame implements ActionListener, WindowL
 
 			JButton res = new JButton();
 			res.setText("-");
+			res.setBackground(new Color(128,0,128));
+			res.setForeground(Color.WHITE);
+			res.setBorderPainted(false);
 			panelCantidad.add(res);
 			productos.get(i).setMenos(res);
 			res.addActionListener(this);
@@ -114,6 +117,9 @@ public class PantallaPrincipal extends JFrame implements ActionListener, WindowL
 
 			JButton add = new JButton();
 			add.setText("+");
+			add.setBackground(new Color(128,0,128));
+			add.setForeground(Color.WHITE);
+			add.setBorderPainted(false);
 			panelCantidad.add(add);
 			productos.get(i).setMas(add);
 			add.addActionListener(this);
@@ -146,6 +152,9 @@ public class PantallaPrincipal extends JFrame implements ActionListener, WindowL
 
 		JButton comprar = new JButton();
 		comprar.setText("Comprar");
+		comprar.setBackground(new Color(128,0,128));
+		comprar.setForeground(Color.WHITE);
+		comprar.setBorderPainted(false);
 
 		JPanel panelsur = new JPanel();
 

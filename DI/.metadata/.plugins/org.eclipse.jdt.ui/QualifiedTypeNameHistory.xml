@@ -6,7 +6,6 @@
 <fullyQualifiedTypeName name="javax.print.attribute.ResolutionSyntax"/>
 <fullyQualifiedTypeName name="gui.Ejercicio1"/>
 <fullyQualifiedTypeName name="javax.sql.rowset.WebRowSet"/>
-<fullyQualifiedTypeName name="java.awt.Insets"/>
 <fullyQualifiedTypeName name="java.net.NoRouteToHostException"/>
 <fullyQualifiedTypeName name="main.Practica1"/>
 <fullyQualifiedTypeName name="javax.swing.Box"/>
@@ -28,7 +27,6 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.awt.Font"/>
-<fullyQualifiedTypeName name="java.awt.Color"/>
 <fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="main.Usuario"/>
@@ -49,4 +47,8 @@
 <fullyQualifiedTypeName name="java.awt.Graphics2D"/>
 <fullyQualifiedTypeName name="java.awt.Graphics"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
+<fullyQualifiedTypeName name="javax.swing.border.Border"/>
+<fullyQualifiedTypeName name="java.awt.Insets"/>
+<fullyQualifiedTypeName name="java.awt.Component"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>

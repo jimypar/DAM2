@@ -127,9 +127,15 @@ public class Compra extends JFrame {
 
 		JButton comprar = new JButton();
 		comprar.setText("Comprar");
+		comprar.setBackground(new Color(128,0,128));
+		comprar.setForeground(Color.WHITE);
+		comprar.setBorderPainted(false);
 
 		JButton volver = new JButton();
 		volver.setText("Volver");
+		volver.setBackground(new Color(128,0,128));
+		volver.setForeground(Color.WHITE);
+		volver.setBorderPainted(false);
 
 		JPanel panelsur = new JPanel();
 
