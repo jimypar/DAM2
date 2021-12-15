@@ -140,38 +140,41 @@ public class Servidor {
 
         String[] partes = mensaje.split(":");
 
-        switch (partes[0]){
-            case "1":
-                switch (partes[1]){
-                    case "1":
-                        return bd.consultarEntrenador(partes[2]);
-                    case "2":
-                        return bd.consultarJugador(partes[2]);
-                    case "3":
-                        return bd.consultarEstadio(partes[2]);
-                }
-                break;
-            case "2":
-                switch (partes[1]){
-                    case "1":
-                        return bd.consultarEntrenador(partes[2]);
-                    case "2":
-                        return bd.consultarJugador(partes[2]);
-                    case "3":
-                        return bd.consultarEstadio(partes[2]);
-                }
-                break;
-            case "3":
-                switch (partes[1]){
-                    case "1":
-                        bd.eliminarEntrenador(partes[2]);
-                    case "2":
-                        bd.eliminarJugador(partes[2]);
-                    case "3":
-                        bd.eliminarEstadio(partes[2]);
-                }
-                break;
-        }
+        try {
+            switch (partes[0]){
+                case "1":
+                    switch (partes[1]){
+                        case "1":
+                            return bd.consultarEntrenador(partes[2]);
+                        case "2":
+                            return bd.consultarJugador(partes[2]);
+                        case "3":
+                            return bd.consultarEstadio(partes[2]);
+                    }
+                    break;
+                case "2":
+                    switch (partes[1]){
+                        case "1":
+                            bd.modificarEntrenador(partes[2],partes[3],partes[4],partes[5]);
+                        case "2":
+                            bd.modificarJugador(partes[2],partes[3],partes[4],partes[5],partes[6]);
+                        case "3":
+                            bd.modificarEstadio(partes[2],partes[3],partes[4]);
+                    }
+                    break;
+                case "3":
+                    switch (partes[1]){
+                        case "1":
+                            bd.eliminarEntrenador(partes[2]);
+                        case "2":
+                            bd.eliminarJugador(partes[2]);
+                        case "3":
+                            bd.eliminarEstadio(partes[2]);
+                    }
+                    break;
+            }
+        }catch (ArrayIndexOutOfBoundsException e){}
+
 
         return "No se ha encontrado la peticion";
 

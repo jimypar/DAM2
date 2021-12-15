@@ -7,7 +7,7 @@ public class BaseDatos {
 
     public boolean conectar(){
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/laliga", "root", "");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/laliga", "root", "");
             return true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR AL CONECTAR");
@@ -18,36 +18,6 @@ public class BaseDatos {
 
     public void desconectar() throws SQLException {
         conexion.close();
-    }
-
-    public void insertar(String matricula, String marca, String potencia, LocalDateTime fechaAlta) throws SQLException {
-        String consulta = "INSERT INTO coches(matricula, marca, potencia, fecha_publicacion) VALUES(?,?,?,?)";
-        PreparedStatement sentencia = null;
-
-        sentencia = conexion.prepareStatement(consulta);
-        sentencia.setString(1, matricula);
-        sentencia.setString(2, marca);
-        sentencia.setString(3, potencia);
-        sentencia.setTimestamp(4, Timestamp.valueOf(fechaAlta));
-
-        sentencia.executeUpdate();
-
-        if( sentencia == null ){
-            sentencia.close();
-        }
-    }
-
-    public void eliminar(String matricula) throws SQLException {
-        String consulta = "DELETE FROM coches WHERE matricula = ?";
-        PreparedStatement sentencia = null;
-
-        sentencia = conexion.prepareStatement(consulta);
-        sentencia.setString(1, matricula);
-        sentencia.executeUpdate();
-
-        if( sentencia == null ){
-            sentencia.close();
-        }
     }
 
 
@@ -86,9 +56,9 @@ public class BaseDatos {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                resultado += "Nombre: "+rs.getString("nombre");
-                resultado += ":Nacionalidad: "+rs.getString("nacionalidad");
-                resultado += ":ID Equipo: "+rs.getString("idEquipo");
+                resultado += "Nombre:"+rs.getString("nombre");
+                resultado += ":Nacionalidad:"+rs.getString("nacionalidad");
+                resultado += ":ID Equipo:"+rs.getString("idEquipo");
             }
 
             rs.close();
@@ -112,9 +82,10 @@ public class BaseDatos {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                resultado += "Nombre: "+rs.getString("nombre");
-                resultado += ":Nacionalidad: "+rs.getString("nacionalidad");
-                resultado += ":Posicion: "+rs.getString("posicion");
+                resultado += "Nombre:"+rs.getString("nombre");
+                resultado += ":Nacionalidad:"+rs.getString("nacionalidad");
+                resultado += ":ID Equipo:"+rs.getString("idEquipo");
+                resultado += ":Posicion:"+rs.getString("posicion");
             }
 
             rs.close();
@@ -138,8 +109,8 @@ public class BaseDatos {
             ResultSet rs = stmt.executeQuery();
 
             while (rs.next()) {
-                resultado += "Nombre: "+rs.getString("nombre");
-                resultado += ":Ciudad: "+rs.getString("ciudad");
+                resultado += "Nombre:"+rs.getString("nombre");
+                resultado += ":Ciudad:"+rs.getString("ciudad");
             }
 
             rs.close();
@@ -150,6 +121,55 @@ public class BaseDatos {
         }
 
         return resultado;
+    }
+
+    public void modificarEntrenador(String nombre, String nuevoNombre, String nuevaNacionalidad, String nuevoEquipo) {
+
+        try {
+            PreparedStatement st = conexion.prepareStatement("UPDATE entrenador SET nombre = ?, nacionalidad = ?, idEquipo = ? WHERE nombre = ?");
+            st.setString(4, nombre);
+            st.setString(1, nuevoNombre);
+            st.setString(2, nuevaNacionalidad);
+            st.setString(3, nuevoEquipo);
+            st.executeUpdate();
+            st.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void modificarEstadio(String nombre, String nuevoNombre, String nuevaCiudad) {
+
+        try {
+            PreparedStatement st = conexion.prepareStatement("UPDATE estadio SET nombre = ?, ciudad = ? WHERE nombre = ?");
+
+            st.setString(1, nuevoNombre);
+            st.setString(2, nuevaCiudad);
+            st.setString(3, nombre);
+            st.executeUpdate();
+            st.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void modificarJugador(String nombre, String nuevoNombre, String nuevaNacionalidad, String nuevoIdEquipo, String nuevaPosicion) {
+
+        try {
+            PreparedStatement st = conexion.prepareStatement("UPDATE jugador SET nombre = ?, nacionalidad = ?, idEquipo = ?, posicion = ? WHERE nombre = ?");
+            st.setString(5, nombre);
+            st.setString(1, nuevoNombre);
+            st.setString(2, nuevaNacionalidad);
+            st.setString(3, nuevoIdEquipo);
+            st.setString(4, nuevaPosicion);
+            st.executeUpdate();
+            st.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public void eliminarEntrenador(String nombre) {
