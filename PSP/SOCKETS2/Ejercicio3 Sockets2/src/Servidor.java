@@ -6,7 +6,6 @@ public class Servidor {
 
     private BaseDatos bd;
 
-
     public static void main(String[] args) {
         BaseDatos bd = new BaseDatos();
         Servidor servidor = new Servidor(4444,bd);
@@ -26,7 +25,9 @@ public class Servidor {
 
     public void start() {
 
-        bd.conectar();
+        if (!bd.conectar()){
+            System.exit(0);
+        }
 
         continuar = true;
         try
@@ -107,14 +108,17 @@ public class Servidor {
 
                 if (conectado){
 
-
+                    String resultado = consulta(mensaje);
+                    salida.println(resultado);
 
                     if (mensaje.equals("$$$DESCONECTARR$$$")) {
                         continuar = false;
                     }
                 }else {
                     String resultado = "";
-                    resultado = conectarUsuario(mensaje);
+                    if (conectarUsuario(mensaje)!=-1){conectado=true;}
+                    resultado = conectarUsuario(mensaje)+"";
+                    System.out.println(resultado);
                     salida.println(resultado);
                 }
             }
@@ -132,19 +136,57 @@ public class Servidor {
 
     }
 
-    private String conectarUsuario(String mensaje) {
+    private String consulta(String mensaje) {
 
         String[] partes = mensaje.split(":");
 
+        switch (partes[0]){
+            case "1":
+                switch (partes[1]){
+                    case "1":
+                        return bd.consultarEntrenador(partes[2]);
+                    case "2":
+                        return bd.consultarJugador(partes[2]);
+                    case "3":
+                        return bd.consultarEstadio(partes[2]);
+                }
+                break;
+            case "2":
+                switch (partes[1]){
+                    case "1":
+                        return bd.consultarEntrenador(partes[2]);
+                    case "2":
+                        return bd.consultarJugador(partes[2]);
+                    case "3":
+                        return bd.consultarEstadio(partes[2]);
+                }
+                break;
+            case "3":
+                switch (partes[1]){
+                    case "1":
+                        bd.eliminarEntrenador(partes[2]);
+                    case "2":
+                        bd.eliminarJugador(partes[2]);
+                    case "3":
+                        bd.eliminarEstadio(partes[2]);
+                }
+                break;
+        }
+
+        return "No se ha encontrado la peticion";
+
+    }
+
+    private int conectarUsuario(String mensaje) {
+
+        String[] partes = mensaje.split(":");
+        int resultado = -1;
         try {
-            if (bd.consultarUsuario(partes[0],partes[1])){
-                return "1";
-            }else {
-                return "0";
-            }
+            resultado =  bd.consultarUsuario(partes[0],partes[1]);
         }catch (ArrayIndexOutOfBoundsException e){}
 
-        return "0";
+        return resultado;
+
 
     }
 

@@ -59,7 +59,7 @@ public class Main extends JFrame{
 		
 		
 		JButton nuevo = new JButton();
-		nuevo.setText("Nuevo");
+		nuevo.setText("Nueva Ventana");
 		panel.add(nuevo,config);
 		
 		this.getContentPane().add(panel);

@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `Laliga`
 --
+CREATE DATABASE laliga;
+USE laliga;
 
 -- --------------------------------------------------------
 
@@ -345,6 +347,7 @@ INSERT INTO `usuario` (`id`, `nombre`, `email`, `password`, `es_administrador`) 
 (30, 'Administrador', 'admin@liga.es', '21232f297a57a5a743894a0e4a801fc3', 1),
 (32, 'Antonio Ruiz Amate', 'antonio@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 0),
 (36, 'TzJFdXJUN1BUUnU2SFZSWkI3Vmp0dz09', 'SFQ0R0tSYUROYk0zUm43SVJLbStUdz09', 'JDJ5JDEwJGtTNnJwWUlQanV6RWRWYkJBN203aHVoVm0veHQ2Yn', 0),
+(1, 'a', 'a', 'a', 1),
 (37, 'r0d6mFRoQJshDZi6f3RdzA==', 'qNrVrycbazMg72hKCFXttg==', 'knJklVUwvSTwuhpgEKxNJA==', 0);
 
 --

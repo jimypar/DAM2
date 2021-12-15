@@ -72,7 +72,6 @@ public class Servidor {
         Socket socket;
         DataInputStream entrada;
         PrintStream salida;
-
         int id;
 
         HiloCliente(Socket socket) {
@@ -143,11 +142,11 @@ public class Servidor {
 
         if (turno==id){
             if (estaVacio(mensaje)){
-                if (turno == 1){
-                    turno=2;
-                }else {
-                    turno=1;
-                }
+                    if (turno == 1){
+                        turno=2;
+                    }else {
+                        turno=1;
+                    }
                 pintarMatriz(mensaje,id);
                 if (calcularVictoria(id)){
                     enviarTodos(id+":"+mensaje);

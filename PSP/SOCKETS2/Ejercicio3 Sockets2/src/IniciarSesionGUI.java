@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.IOException;
 
 public class IniciarSesionGUI extends JFrame implements ActionListener,WindowListener {
 
@@ -8,6 +9,8 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
     private JTextField txtUser,txtPassword;
     private JPanel panel;
     private Cliente cliente;
+    private GUIusuario guiu = null;
+    private GUIadmin guia= null;
     private boolean conectado;
 
     private IniciarSesionGUI() {
@@ -43,38 +46,32 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
 
     }
 
-    private void aplicacionGUI(){
 
-        panel = new JPanel(new GridLayout(2,2));
-
-        JLabel hola = new JLabel();
-        hola.setText("HOLA");
-        panel.add(hola);
-
-        add(panel);
-
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(300,200);
-        setVisible(true);
-
-        cliente = new Cliente("localhost", 4444, this);
-        cliente.iniciar();
-
-    }
 
     void recibir(String str) {
+
         if (conectado){
 
+            try {
+                guiu.recibir(str);
+            }catch (Exception e){}
+            try {
+                guia.recibir(str);
+            }catch (Exception e){}
 
-
-        }else{
-            if (!str.equals("1")){
+        }else {
+            if (str.equals("-1")){
+                JOptionPane.showMessageDialog(null,"Usuario incorrecto","Usuario incorrecto",JOptionPane.ERROR_MESSAGE);
+            }else if (str.equals("0")){
+                JOptionPane.showMessageDialog(null,"Sesion iniciada","Usuario correcto",JOptionPane.INFORMATION_MESSAGE);
+                conectado = true;
+                this.dispose();
+                guiu = new GUIusuario(cliente);
+            }else if ((str.equals("1"))){
                 JOptionPane.showMessageDialog(null,"Sesion iniciada","Usuario correcto",JOptionPane.INFORMATION_MESSAGE);
                 conectado=true;
-                getContentPane().removeAll();
-                aplicacionGUI();
-            }else {
-                JOptionPane.showMessageDialog(null,"Usuario incorrecto","Usuario incorrecto",JOptionPane.ERROR_MESSAGE);
+                this.dispose();
+                guia = new GUIadmin(cliente);
             }
         }
 
@@ -105,6 +102,5 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
     public static void main(String[] args) {
        new IniciarSesionGUI();
     }
-
 
 }

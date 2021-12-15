@@ -5,43 +5,16 @@ import java.time.LocalDateTime;
 public class BaseDatos {
     private Connection conexion;
 
-    public void conectar(){
+    public boolean conectar(){
         try {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/laliga", "root", "");
+            return true;
         } catch (SQLException e) {
-            int ventanaYesNo = JOptionPane.showConfirmDialog(null, "¿Deseas crear la base?", "Base no encontrada",
-                    JOptionPane.YES_NO_OPTION, JOptionPane.ERROR_MESSAGE);
-            if (ventanaYesNo == 0) {
-                crearBase();
-                conectar();
-                JOptionPane.showMessageDialog(null, "BASE CREADA");
-            }else {
-                System.exit(0);
-            }
+            JOptionPane.showMessageDialog(null, "ERROR AL CONECTAR");
+            return false;
         }
     }
 
-    private void crearBase(){
-
-        try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3307", "root", "");
-            Statement stmt = conn.createStatement();
-        ) {
-            String sql = "CREATE DATABASE IF NOT EXISTS laliga";
-            stmt.executeUpdate(sql);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void crearTabla() throws SQLException {
-        String consulta = "CREATE TABLE coches(id int auto_increment primary key,matricula VARCHAR(20) not null UNIQUE,marca VARCHAR(40) not null,potencia INTEGER,fecha_publicacion TIMESTAMP)";
-        PreparedStatement sentencia = null;
-
-        sentencia = conexion.prepareStatement(consulta);
-        sentencia.executeUpdate();
-    }
 
     public void desconectar() throws SQLException {
         conexion.close();
@@ -78,7 +51,7 @@ public class BaseDatos {
     }
 
 
-    public boolean consultarUsuario(String usuario,String password){
+    public int consultarUsuario(String usuario, String password){
         try {
             String SQL = "SELECT * FROM usuario";
             Statement stmt = conexion.createStatement();
@@ -87,7 +60,7 @@ public class BaseDatos {
             while (rs.next()) {
                 if (rs.getString("email").equals(usuario)){
                     if (rs.getString("password").equals(password)){
-                        return true;
+                        return rs.getInt("es_administrador");
                     }
                 }
             }
@@ -99,7 +72,123 @@ public class BaseDatos {
             e.printStackTrace();
         }
 
-        return false;
+        return -1;
     }
 
+    public String consultarEntrenador(String nombre) {
+
+        String resultado = "";
+
+        try {
+            String SQL = "SELECT * FROM entrenador WHERE nombre=?";
+            PreparedStatement stmt = conexion.prepareStatement(SQL);
+            stmt.setString(1,nombre);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                resultado += "Nombre: "+rs.getString("nombre");
+                resultado += ":Nacionalidad: "+rs.getString("nacionalidad");
+                resultado += ":ID Equipo: "+rs.getString("idEquipo");
+            }
+
+            rs.close();
+            stmt.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return resultado;
+    }
+
+    public String consultarJugador(String nombre) {
+
+        String resultado = "";
+
+        try {
+            String SQL = "SELECT * FROM jugador WHERE nombre=?";
+            PreparedStatement stmt = conexion.prepareStatement(SQL);
+            stmt.setString(1,nombre);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                resultado += "Nombre: "+rs.getString("nombre");
+                resultado += ":Nacionalidad: "+rs.getString("nacionalidad");
+                resultado += ":Posicion: "+rs.getString("posicion");
+            }
+
+            rs.close();
+            stmt.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return resultado;
+    }
+
+    public String consultarEstadio(String nombre) {
+
+        String resultado = "";
+
+        try {
+            String SQL = "SELECT * FROM estadio WHERE nombre=?";
+            PreparedStatement stmt = conexion.prepareStatement(SQL);
+            stmt.setString(1,nombre);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                resultado += "Nombre: "+rs.getString("nombre");
+                resultado += ":Ciudad: "+rs.getString("ciudad");
+            }
+
+            rs.close();
+            stmt.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return resultado;
+    }
+
+    public void eliminarEntrenador(String nombre) {
+
+        try {
+            String SQL = "DELETE entrenador.* FROM entrenador WHERE nombre=?";
+            PreparedStatement stmt = conexion.prepareStatement(SQL);
+            stmt.setString(1,nombre);
+            stmt.executeUpdate();
+            stmt.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void eliminarEstadio(String nombre) {
+
+        try {
+            String SQL = "DELETE estadio.* FROM estadio WHERE nombre=?";
+            PreparedStatement stmt = conexion.prepareStatement(SQL);
+            stmt.setString(1,nombre);
+            stmt.executeUpdate();
+            stmt.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void eliminarJugador(String nombre) {
+
+        try {
+            String SQL = "DELETE jugador.* FROM jugador WHERE nombre=?";
+            PreparedStatement stmt = conexion.prepareStatement(SQL);
+            stmt.setString(1,nombre);
+            stmt.executeUpdate();
+            stmt.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }

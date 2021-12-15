@@ -8,11 +8,14 @@ public class Cliente {
     private Socket socket;
 
     private IniciarSesionGUI gui;
-
     private String server;
     private int port;
 
     private boolean conectado;
+
+    public void setConectado(boolean conectado) {
+        this.conectado = conectado;
+    }
 
     Cliente(String server, int port, IniciarSesionGUI gui) {
         this.server = server;
@@ -42,10 +45,6 @@ public class Cliente {
         return true;
     }
 
-    private void mostrar(String msg) {
-        gui.recibir(msg + "\n");
-    }
-
     void enviarMensaje(String msg) {
         salida.println(msg);
     }
@@ -61,6 +60,8 @@ public class Cliente {
         gui.falloConexion();
 
     }
+
+
 
     class Escuchar extends Thread {
 

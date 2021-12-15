@@ -12,7 +12,7 @@
 	<atom:link href="https://www.genuitec.com/feed/" rel="self" type="application/rss+xml" />
 	<link>https://www.genuitec.com</link>
 	<description>The Cloud Control Company</description>
-	<lastBuildDate>Wed, 17 Nov 2021 15:44:35 +0000</lastBuildDate>
+	<lastBuildDate>Tue, 14 Dec 2021 15:56:05 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -20,6 +20,23 @@
 	1	</sy:updateFrequency>
 	
 	<item>
+		<title>CVE-2021-44228 and Genuitec</title>
+		<link>https://www.genuitec.com/cve-2021-44228-and-genuitec/</link>
+		
+		<dc:creator><![CDATA[timwebb]]></dc:creator>
+		<pubDate>Tue, 14 Dec 2021 15:56:05 +0000</pubDate>
+				<category><![CDATA[CodeTogether]]></category>
+		<category><![CDATA[Genuitec]]></category>
+		<guid isPermaLink="false">https://www.genuitec.com/?p=677625</guid>
+
+					<description><![CDATA[<p>An internal audit confirms Genuitec does not use log4j2 on our servers and is not impacted by the CVE-2021-44228 vulnerability.</p>
+<p>The post <a rel="nofollow" href="https://www.genuitec.com/cve-2021-44228-and-genuitec/">CVE-2021-44228 and Genuitec</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
 		<title>CodeTogether 5.0.1—FIXES, Fixes, fixes</title>
 		<link>https://www.genuitec.com/codetogether-5-0-1-fixes-fixes-fixes/</link>
 		
@@ -268,22 +285,6 @@
 <enclosure url="https://www.genuitec.com/wp-content/uploads/2020/10/ide_to_ide_lq2.mp4" length="3348518" type="video/mp4" />
 <enclosure url="https://www.genuitec.com/wp-content/uploads/2020/10/ide_to_ide.webm" length="2256232" type="video/webm" />
 
-			</item>
-		<item>
-		<title>MyEclipse 2020.9.16 is Here with Quarkus, Docker &#038; OpenShift</title>
-		<link>https://www.genuitec.com/myeclipse-2020-9-16/</link>
-		
-		<dc:creator><![CDATA[Brian Fernandes]]></dc:creator>
-		<pubDate>Wed, 16 Sep 2020 19:54:13 +0000</pubDate>
-				<category><![CDATA[Genuitec]]></category>
-		<category><![CDATA[MyEclipse]]></category>
-		<guid isPermaLink="false">https://www.genuitec.com/?p=663463</guid>
-
-					<description><![CDATA[<p>The post <a rel="nofollow" href="https://www.genuitec.com/myeclipse-2020-9-16/">MyEclipse 2020.9.16 is Here with Quarkus, Docker &#038; OpenShift</a> appeared first on <a rel="nofollow" href="https://www.genuitec.com">Genuitec</a>.</p>
-]]></description>
-		
-		
-		
 			</item>
 	</channel>
 </rss>
