@@ -38,7 +38,7 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
         add(panel);
 
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(300,200);
+        setBounds(300,200,300,100);
         setVisible(true);
 
         cliente = new Cliente("localhost", 4444, this);

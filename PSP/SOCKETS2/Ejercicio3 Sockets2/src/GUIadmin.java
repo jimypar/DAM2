@@ -127,8 +127,10 @@ public class GUIadmin extends JFrame implements ActionListener, WindowListener {
 
         add(panel);
 
+        vaciarCampos();
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(500 , 500);
+        setBounds(300,200,500 , 500);
         setVisible(true);
 
     }

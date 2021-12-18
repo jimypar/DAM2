@@ -7,7 +7,7 @@ public class BaseDatos {
 
     public boolean conectar(){
         try {
-            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/laliga", "root", "");
+            conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/laliga", "root", "");
             return true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERROR AL CONECTAR");
