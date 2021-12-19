@@ -57,17 +57,6 @@ public class Servidor {
         }
     }
 
-
-
-    protected void cerrarServer() {
-        continuar = false;
-        try {
-            new Socket("localhost", puerto);
-        }
-        catch(Exception e) {
-        }
-    }
-
     class HiloCliente extends Thread {
         Socket socket;
         DataInputStream entrada;

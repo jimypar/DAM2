@@ -9,6 +9,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
     private JLabel txtResult;
     private Cliente cliente;
 
+    //Constructor de la clase clienteGUI que inicia el JFrame
     private ClienteGUI() {
 
         super("Cliente");
@@ -39,11 +40,13 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
         setSize(500,75);
         setVisible(true);
 
+        //Iniciar el cliente
         cliente = new Cliente("localhost", 4444, this);
         cliente.iniciar();
 
     }
 
+    //Muestra el mensaje
     void append(String str) {
         txtResult.setText(str);
     }
@@ -52,6 +55,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
         cliente.enviarMensaje("$$$SALIR$$$");
     }
 
+    //Envia mensaje cuando le das a enter
     public void actionPerformed(ActionEvent e) {
 
         cliente.enviarMensaje(txtMensaje.getText());

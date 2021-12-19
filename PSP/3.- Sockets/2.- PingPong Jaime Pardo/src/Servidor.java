@@ -26,9 +26,6 @@ public class Servidor {
         arrancarServidor();
     }
 
-
-
-
     /**
      * Método privado que arranca de manera automatica el servidor. Esperará que se realice la
      * conexión de una aplicación cliente

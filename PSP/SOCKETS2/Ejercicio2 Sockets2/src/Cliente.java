@@ -52,17 +52,6 @@ public class Cliente {
         salida.println(msg);
     }
 
-    void desconectar() {
-        try {
-            entrada.close();
-            salida.close();
-            socket.close();
-        }
-        catch(Exception e) {}
-
-        gui.falloConexion();
-
-    }
 
     class Escuchar extends Thread {
 

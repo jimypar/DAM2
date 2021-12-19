@@ -4,11 +4,6 @@ import java.util.*;
 
 public class Servidor {
 
-    public static void main(String[] args) {
-        Servidor servidor = new Servidor(4444);
-        servidor.start();
-    }
-
     private static int idUsuario;
     private ArrayList<HiloCliente> clientes;
     private ArrayList<String> years;
@@ -16,6 +11,15 @@ public class Servidor {
     private int puerto;
     private boolean continuar;
 
+
+    public static void main(String[] args) {
+        //Crea servidor mandando el parametro del puerto
+        Servidor servidor = new Servidor(4444);
+        //Iniciar servidor
+        servidor.start();
+    }
+
+    //Constructor de la clase
     public Servidor(int puerto) {
         this.puerto = puerto;
         clientes = new ArrayList<HiloCliente>();
@@ -23,11 +27,13 @@ public class Servidor {
 
     public void start() {
 
+        //Llamo a la clase para cargar el csv y guardarlo en arrays
         CargarCSV csv = new CargarCSV();
         csv.cargarCSV();
         this.years = csv.getYears();
         this.incremento = csv.getIncremento();
 
+        //Crea el socket del servidor y recibe conexiones y mete los cliente en el arraylist
         continuar = true;
         try
         {
@@ -44,6 +50,7 @@ public class Servidor {
                 hiloCliente.start();
             }
 
+            //Una vez terminada la conexion se cierra el serversocket y todos los clientes
             serverSocket.close();
             for(int i = 0; i < clientes.size(); ++i) {
                 HiloCliente cliente = clientes.get(i);
@@ -57,17 +64,6 @@ public class Servidor {
         }
     }
 
-
-
-    protected void cerrarServer() {
-        continuar = false;
-        try {
-            new Socket("localhost", puerto);
-        }
-        catch(Exception e) {
-        }
-    }
-
     class HiloCliente extends Thread {
         Socket socket;
         DataInputStream entrada;
@@ -75,8 +71,11 @@ public class Servidor {
 
         int id;
 
+        //Constructor del cliente
         HiloCliente(Socket socket) {
+            //Se asigna una id de usuario
             id = ++idUsuario;
+            //Se crea el socket, el PrintStream y el DataInputStream
             this.socket = socket;
             try
             {
@@ -90,6 +89,7 @@ public class Servidor {
         public void run() {
             boolean continuar = true;
 
+            //Bucle de leer mensajes
             while(continuar) {
                 String mensaje = "";
                 try {
@@ -99,20 +99,16 @@ public class Servidor {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-                if (mensaje.equals("$$$DESCONECTARR$$$")) {
-                    continuar = false;
-                }
-                else {
-                    String resultado = calcularIncremento(mensaje);
-                    salida.println(resultado);
-                }
+                //Calcula el incremento y lo devuelve.
+                String resultado = calcularIncremento(mensaje);
+                salida.println(resultado);
 
 
             }
             cerrar();
         }
 
+        //Metodo para cerrar las conexiones del cliente
         private void cerrar() {
             try {
                 salida.close();
@@ -124,8 +120,7 @@ public class Servidor {
 
     }
 
-
-
+    //Metodo que busca el incremento en los arrays
     private String calcularIncremento(String mensaje) {
 
         for (int i=0;i<years.size();i++){

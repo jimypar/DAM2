@@ -8,25 +8,19 @@ public class CargarCSV {
     private ArrayList<String> years;
     private ArrayList<String> incremento;
 
+    //Constructor de la clase cargarCSV que inicia los arrays
     public CargarCSV() {
         this.years = new ArrayList<>();
         this.incremento = new ArrayList<>();
     }
 
+    //Getters
     public ArrayList<String> getYears() {
         return years;
     }
 
-    public void setYears(ArrayList<String> years) {
-        this.years = years;
-    }
-
     public ArrayList<String> getIncremento() {
         return incremento;
-    }
-
-    public void setIncremento(ArrayList<String> incremento) {
-        this.incremento = incremento;
     }
 
     public void cargarCSV() {
