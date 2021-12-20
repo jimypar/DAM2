@@ -34,8 +34,8 @@ public class Servidor {
         {
             ServerSocket serverSocket = new ServerSocket(puerto);
 
-            ClienteGUI cliente1 = new ClienteGUI(300,300);
-            ClienteGUI cliente2 = new ClienteGUI(600,300);
+            ClienteGUI cliente1 = new ClienteGUI(300,300, "Jugador 1");
+            ClienteGUI cliente2 = new ClienteGUI(600,300, "Jugador 2");
 
             while(continuar){
                 Socket socket = serverSocket.accept();

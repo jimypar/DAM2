@@ -39,10 +39,13 @@ public class Server {
 
     }
 
-    private String resultado() {
+    private int resultado() {
 
-        return datos.get(0)+datos.get(1);
+        int num1 = Integer.parseInt(datos.get(0));
+        int num2 = Integer.parseInt(datos.get(1));
+        int resultado = num1+num2;
 
+        return resultado;
     }
 
 

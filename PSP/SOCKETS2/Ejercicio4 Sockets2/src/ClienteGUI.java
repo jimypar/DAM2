@@ -9,9 +9,9 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
     JButton b00,b01,b02,b10,b11,b12,b20,b21,b22;
 
     //Constructor del GUI del cliente con los parametros de la posicion de la pestaña
-    ClienteGUI(int x,int y) {
+    ClienteGUI(int x, int y, String nombre) {
 
-        super("Cliente");
+        super(nombre);
 
         JPanel panel = new JPanel(new GridLayout(3,3));
 
