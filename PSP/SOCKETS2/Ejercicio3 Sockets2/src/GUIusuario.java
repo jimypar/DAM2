@@ -14,6 +14,7 @@ public class GUIusuario extends JFrame implements ActionListener, WindowListener
     private JLabel resultado1,resultado2,resultado3;
     private Cliente cliente;
 
+    //Constructor de la clase GUI de un cliente.
     GUIusuario(Cliente cliente) {
         super("Cliente");
 
@@ -109,7 +110,8 @@ public class GUIusuario extends JFrame implements ActionListener, WindowListener
 
     }
 
-
+    //Clase que recibe el ActionListener y segun el boton que sea pulsado
+    //se realiza una consulta u otra.
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -130,6 +132,7 @@ public class GUIusuario extends JFrame implements ActionListener, WindowListener
 
     }
 
+    //Metodo que recibe los resultados de las consultas.
     public void recibir(String str) {
 
         String[] partes = str.split(":");

@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 public class BaseDatos {
     private Connection conexion;
 
+    //Metodo que conecta con la base de datos y envia un mensaje de error si falla.
     public boolean conectar(){
         try {
             conexion = DriverManager.getConnection("jdbc:mysql://localhost:3307/laliga", "root", "");
@@ -15,12 +16,12 @@ public class BaseDatos {
         }
     }
 
-
+    //Metodo para desconectarse de la base de datos
     public void desconectar() throws SQLException {
         conexion.close();
     }
 
-
+    //Metodo que consulta si un usuario existe o no y devuelve si es admin o no
     public int consultarUsuario(String usuario, String password){
         try {
             String SQL = "SELECT * FROM usuario";
@@ -45,6 +46,7 @@ public class BaseDatos {
         return -1;
     }
 
+    //Metodo que consulta los entrenadores segun su nombre.
     public String consultarEntrenador(String nombre) {
 
         String resultado = "";
@@ -71,6 +73,7 @@ public class BaseDatos {
         return resultado;
     }
 
+    //Metodo que consulta los jugadores segun su nombre.
     public String consultarJugador(String nombre) {
 
         String resultado = "";
@@ -98,6 +101,7 @@ public class BaseDatos {
         return resultado;
     }
 
+    //Metodo que consulta los estadios segun su nombre.
     public String consultarEstadio(String nombre) {
 
         String resultado = "";
@@ -123,6 +127,7 @@ public class BaseDatos {
         return resultado;
     }
 
+    //Metodo para modificar los datos de un entrenador.
     public void modificarEntrenador(String nombre, String nuevoNombre, String nuevaNacionalidad, String nuevoEquipo) {
 
         try {
@@ -139,6 +144,7 @@ public class BaseDatos {
         }
     }
 
+    //Metodo para modificar los datos de un estadio.
     public void modificarEstadio(String nombre, String nuevoNombre, String nuevaCiudad) {
 
         try {
@@ -155,6 +161,7 @@ public class BaseDatos {
         }
     }
 
+    //Metodo para modificar los datos de un jugador.
     public void modificarJugador(String nombre, String nuevoNombre, String nuevaNacionalidad, String nuevoIdEquipo, String nuevaPosicion) {
 
         try {
@@ -172,6 +179,7 @@ public class BaseDatos {
         }
     }
 
+    //Metodo para eliminar los datos de un entrenador.
     public void eliminarEntrenador(String nombre) {
 
         try {
@@ -185,6 +193,7 @@ public class BaseDatos {
             e.printStackTrace();
         }
     }
+    //Metodo para eliminar los datos de un estadio.
     public void eliminarEstadio(String nombre) {
 
         try {
@@ -198,6 +207,7 @@ public class BaseDatos {
             e.printStackTrace();
         }
     }
+    //Metodo para eliminar los datos de un jugador.
     public void eliminarJugador(String nombre) {
 
         try {

@@ -4,11 +4,6 @@ import java.util.*;
 
 public class Servidor {
 
-    public static void main(String[] args) {
-        Servidor servidor = new Servidor(4444);
-        servidor.start();
-    }
-
     private static int idUsuario;
     private ArrayList<HiloCliente> clientes;
     private int puerto;
@@ -16,11 +11,21 @@ public class Servidor {
     private int turno;
     private int[][] tablero = new int[3][3];
 
+    //Clase principal que crea el servidor con el puerto y se inicia.
+    public static void main(String[] args) {
+        Servidor servidor = new Servidor(4444);
+        servidor.start();
+    }
+
+    //Constructor del servidor que asigna el puerto y se inicia el array de clientes
     public Servidor(int puerto) {
         this.puerto = puerto;
         clientes = new ArrayList<HiloCliente>();
     }
 
+    //Metodo que inicia el servidor
+    //Crea los dos clientes
+    //acepta conexiones y les asigna un hilo
     public void start() {
 
         turno=1;
@@ -57,23 +62,14 @@ public class Servidor {
         }
     }
 
-
-
-    protected void cerrarServer() {
-        continuar = false;
-        try {
-            new Socket("localhost", puerto);
-        }
-        catch(Exception e) {
-        }
-    }
-
+    //Hilo de cada cliente que contiene el socket, la entrada,la salida y una id de usuario
     class HiloCliente extends Thread {
         Socket socket;
         DataInputStream entrada;
         PrintStream salida;
         int id;
 
+        //Contructor del hilo que le asigna una id, inicia el socket y la entrada y salida.
         HiloCliente(Socket socket) {
             id = ++idUsuario;
             this.socket = socket;
@@ -86,6 +82,7 @@ public class Servidor {
             }
         }
 
+        //El hilo mientras estes conectado recibe datos del cliente y los envia a todos
         public void run() {
 
             if (id<=2){
@@ -102,14 +99,8 @@ public class Servidor {
                         e.printStackTrace();
                     }
 
-                    if (mensaje.equals("$$$DESCONECTARR$$$")) {
-                        continuar = false;
-                    }
-                    else {
-                        String resultado = calcularTabla(mensaje,id);
-                        enviarTodos(resultado);
-                    }
-
+                    String resultado = calcularTabla(mensaje,id);
+                    enviarTodos(resultado);
 
                 }
                 cerrar();
@@ -118,6 +109,7 @@ public class Servidor {
 
         }
 
+        //Metodo que cierra la conexion con el cliente
         private void cerrar() {
             try {
                 salida.close();
@@ -129,6 +121,7 @@ public class Servidor {
 
     }
 
+    //Metodo que envia a todos uun mensaje
     private void enviarTodos(String resultado) {
 
         for (int i = 0;i<clientes.size();i++){
@@ -137,7 +130,7 @@ public class Servidor {
 
     }
 
-
+    //Metodo que comprueba que el movimiento es valido y cambia el turno
     private String calcularTabla(String mensaje, int id) {
 
         if (turno==id){
@@ -164,6 +157,7 @@ public class Servidor {
 
     }
 
+    //Metodo que calcula si hay empate
     private boolean calcularEmpate() {
 
         for (int i=0;i<tablero.length;i++){
@@ -178,6 +172,7 @@ public class Servidor {
 
     }
 
+    //Metodo que calcula si una celda esta vacia
     private boolean estaVacio(String mensaje) {
 
         switch (mensaje) {
@@ -232,6 +227,7 @@ public class Servidor {
 
     }
 
+    //Metodo que comprueba si una id ha ganado.
     private boolean calcularVictoria(int id) {
 
             for (int i = 0;i<3;i++){
@@ -255,6 +251,7 @@ public class Servidor {
             return false;
     }
 
+    //Metodo que rellena la matriz
     private void pintarMatriz(String mensaje, int id) {
 
         switch (mensaje) {

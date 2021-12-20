@@ -5,24 +5,29 @@ import java.util.*;
 public class Servidor {
 
     private BaseDatos bd;
+    private static int idUsuario;
+    private ArrayList<HiloCliente> clientes;
+    private int puerto;
+    private boolean continuar;
 
+    //Metodo principal de la clase que inicia la base de datos que
+    // crea el servidor con el puerto correspondiente y lo inicia
     public static void main(String[] args) {
         BaseDatos bd = new BaseDatos();
         Servidor servidor = new Servidor(4444,bd);
         servidor.start();
     }
 
-    private static int idUsuario;
-    private ArrayList<HiloCliente> clientes;
-    private int puerto;
-    private boolean continuar;
-
+    //Constructor del servidor que le asigna el puerto y la base de datos e inicia el array de clientes.
     public Servidor(int puerto, BaseDatos bd) {
         this.puerto = puerto;
         this.bd = bd;
         clientes = new ArrayList<HiloCliente>();
     }
 
+    //Metodo que inicia el servidor crea la conexion con la base de datos
+    //Inicia el socket del server y constantemente busca conexiones de clientes
+    //acepta la conexion, la añade al array y crea el hilo.
     public void start() {
 
         if (!bd.conectar()){
@@ -59,17 +64,7 @@ public class Servidor {
         }
     }
 
-
-
-    protected void cerrarServer() {
-        continuar = false;
-        try {
-            new Socket("localhost", puerto);
-        }
-        catch(Exception e) {
-        }
-    }
-
+    //Hilo del cliente que contiene el socket, la entrada, la salida y un ID.
     class HiloCliente extends Thread {
         Socket socket;
         DataInputStream entrada;
@@ -77,8 +72,9 @@ public class Servidor {
 
         int id;
         boolean conectado;
-        boolean admin;
 
+        //Constructor del hilo del cliente que inicia el socket le asigna una id
+        //y inicia la salida y entrada
         HiloCliente(Socket socket) {
             id = ++idUsuario;
             this.socket = socket;
@@ -92,6 +88,12 @@ public class Servidor {
             }
         }
 
+        //El hilo recibe mensajes del cliente y
+        //Si NO esta conectado:
+        //  -Comprueba el mensaje si es el usuario y contraseña correctos
+        //  -Le devuelve los permisos que tiene es usuario.
+        //Si esta conectado:
+        //  -Recibe un mensaje y realiza la consulta el la base de datos.
         public void run() {
 
             boolean continuar = true;
@@ -125,6 +127,7 @@ public class Servidor {
             cerrar();
         }
 
+        //Cierra la conexion del usuario
         private void cerrar() {
             try {
                 salida.close();
@@ -136,6 +139,7 @@ public class Servidor {
 
     }
 
+    //Divide el mensaje recibido y comprueba que tipo de consulta es y devuelve el resultado.
     private String consulta(String mensaje) {
 
         String[] partes = mensaje.split(":");
@@ -180,6 +184,7 @@ public class Servidor {
 
     }
 
+    //Comprueba que el usuairo es valido y que permisos tiene
     private int conectarUsuario(String mensaje) {
 
         String[] partes = mensaje.split(":");

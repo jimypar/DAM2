@@ -14,6 +14,7 @@ public class GUIadmin extends JFrame implements ActionListener, WindowListener {
     private JLabel resultado1,resultado2,resultado3,resultado4;
     private Cliente cliente;
 
+    //Constructor de la clase GUI de un administrador.
     GUIadmin(Cliente cliente) {
         super("Cliente");
 
@@ -136,6 +137,8 @@ public class GUIadmin extends JFrame implements ActionListener, WindowListener {
     }
 
 
+    //Clase que recibe el ActionListener y segun el boton que sea pulsado
+    //se realiza una consulta u otra.
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -195,6 +198,7 @@ public class GUIadmin extends JFrame implements ActionListener, WindowListener {
 
     }
 
+    //Metodo que recibe los resultados de las consultas.
     public void recibir(String str) {
 
 
@@ -260,6 +264,7 @@ public class GUIadmin extends JFrame implements ActionListener, WindowListener {
 
     }
 
+    //Metodo que vacia los campos.
     private void vaciarCampos() {
         resultado1.setText("");
         resultado2.setText("");

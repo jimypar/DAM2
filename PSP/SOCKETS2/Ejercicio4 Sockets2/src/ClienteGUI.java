@@ -1,4 +1,3 @@
-import jdk.nashorn.internal.scripts.JO;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,6 +8,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
     private Cliente cliente;
     JButton b00,b01,b02,b10,b11,b12,b20,b21,b22;
 
+    //Constructor del GUI del cliente con los parametros de la posicion de la pestaña
     ClienteGUI(int x,int y) {
 
         super("Cliente");
@@ -55,27 +55,24 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
 
         add(panel);
 
-
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setBounds(x,y,300,300);
         setVisible(true);
 
+        //Se crea el cliente con el host,el puerto y el GUI y se inicia.
         cliente = new Cliente("localhost", 4444, this);
         cliente.iniciar();
 
     }
 
+    //Metodo que comprueba si no esta vacio el mensaje recibido.
     void append(String str) {
-        if (!str.equals("")){
+        if (!str.equals("")) {
             rellenarTabla(str);
         }
     }
 
-
-    void falloConexion() {
-        cliente.enviarMensaje("$$$SALIR$$$");
-    }
-
+    //Metodo del actionListener que recibe el boton presionado y se lo envia al servidor
     public void actionPerformed(ActionEvent e) {
 
         String comando = e.getActionCommand();
@@ -113,9 +110,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
     }
 
 
-    public void windowClosing(WindowEvent e) { cliente.enviarMensaje("$$$SALIR$$$");
-    }
-
+    public void windowClosing(WindowEvent e) {}
     public void windowClosed(WindowEvent e) {}
     public void windowOpened(WindowEvent e) {}
     public void windowIconified(WindowEvent e) {}
@@ -123,12 +118,7 @@ public class ClienteGUI extends JFrame implements ActionListener,WindowListener 
     public void windowActivated(WindowEvent e) {}
     public void windowDeactivated(WindowEvent e) {}
 
-
-    public static void main(String[] args) {
-        new ClienteGUI(300,300);
-    }
-
-
+    //Metodo que rellena la tabla segun el mensaje recibido
     private void rellenarTabla(String str) {
 
         String[] separador = str.split(":");

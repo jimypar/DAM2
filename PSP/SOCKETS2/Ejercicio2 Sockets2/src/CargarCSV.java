@@ -8,6 +8,7 @@ public class CargarCSV {
     private ArrayList<String> years;
     private ArrayList<String> incremento;
 
+    //Constructor de la clase cargarCSV que inicia los arrays
     public CargarCSV() {
         this.years = new ArrayList<>();
         this.incremento = new ArrayList<>();

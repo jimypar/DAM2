@@ -13,6 +13,7 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
     private GUIadmin guia= null;
     private boolean conectado;
 
+    //Constructor de la pestaña de iniciar sesion
     private IniciarSesionGUI() {
 
         super("Cliente");
@@ -41,13 +42,14 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
         setBounds(300,200,300,100);
         setVisible(true);
 
+        //Inicia el cliente con el host, la ip y esta GUI.
         cliente = new Cliente("localhost", 4444, this);
         cliente.iniciar();
 
     }
 
-
-
+    //Metodo que muestra en el GUI el resultado del servidor
+    //Si se ha conectado se le redirige a otro gui.
     void recibir(String str) {
 
         if (conectado){
@@ -77,20 +79,14 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
 
     }
 
-    void falloConexion() {
-        cliente.enviarMensaje("$$$SALIR$$$");
-    }
-
+    //Cuando se hace click al enter se envia la info al server.
     public void actionPerformed(ActionEvent e) {
 
         cliente.enviarMensaje(txtUser.getText()+":"+txtPassword.getText());
 
     }
 
-
-    public void windowClosing(WindowEvent e) { cliente.enviarMensaje("$$$SALIR$$$");
-    }
-
+    public void windowClosing(WindowEvent e) {}
     public void windowClosed(WindowEvent e) {}
     public void windowOpened(WindowEvent e) {}
     public void windowIconified(WindowEvent e) {}
@@ -99,6 +95,7 @@ public class IniciarSesionGUI extends JFrame implements ActionListener,WindowLis
     public void windowDeactivated(WindowEvent e) {}
 
 
+    //Clase principal que crea la ventana.
     public static void main(String[] args) {
        new IniciarSesionGUI();
     }

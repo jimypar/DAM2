@@ -1,7 +1,5 @@
 package main;
 
-import java.awt.Dimension;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -23,7 +21,7 @@ public class Main extends JFrame{
 	
 	public Main() {
 		this.setTitle("JSlider");
-		this.setSize(640, 480);
+		this.setSize(600, 300);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setLayout(null);
 		
@@ -87,18 +85,18 @@ public class Main extends JFrame{
 		config.gridx = 1;			
 		config.gridy = 2;
 		
-		calculoInteres = new JTextField("4.5", 5);
+		calculoInteres = new JTextField("4.500", 5);
 		calculoInteres.setEditable(false);
 		calculoInteres.setHorizontalAlignment(JTextField.CENTER);
 		panel.add(calculoInteres,config);
 		
-		config.gridx = 2;			
-		config.gridy = 2;		
+		config.gridx = 2;
+		config.gridy = 2;
 		
-		jslInteres = new JSlider(0,8,4);
+		jslInteres = new JSlider(0,10000,4500);
 		jslInteres.addChangeListener(new ChangeListener() {
 			public void stateChanged(ChangeEvent e) {
-				calculoInteres.setText(String.valueOf(jslInteres.getValue()));
+				calculoInteres.setText(String.valueOf(Float.parseFloat(String.valueOf(jslInteres.getValue()))/1000));
 				calcularMensualidad();
 			}
 		});	
@@ -148,7 +146,28 @@ public class Main extends JFrame{
 		calculoMensualidad.setHorizontalAlignment(JTextField.CENTER);
 		panel.add(calculoMensualidad,config);
 		
-		calcularMensualidad();		
+		calcularMensualidad();
+		calcularTotal();
+		
+		//TOTAL------------
+		
+		config.gridx = 0;			
+		config.gridy = 5;
+		config.gridwidth = 2;
+		
+		interesesTotales = new JLabel("Intereses totales pagados al banco: ");
+		panel.add(interesesTotales,config);
+		
+		config.gridx = 2;			
+		config.gridy = 5;
+		config.gridwidth = 1;
+		config.fill = GridBagConstraints.HORIZONTAL;
+	
+		calculoInteresesTot = new JTextField("");
+		calculoInteresesTot.setEditable(false);
+		calculoInteresesTot.setHorizontalAlignment(JTextField.CENTER);
+		panel.add(calculoInteresesTot,config);
+				
 			
 		panel.setBounds(10, 10, 600, 200);
 		this.add(panel);
@@ -157,6 +176,8 @@ public class Main extends JFrame{
 	}
 	
 	
+	
+
 	protected void calcularMensualidad() {
 		
 		float capital = Float.parseFloat(calculoCapital.getText());
@@ -166,6 +187,12 @@ public class Main extends JFrame{
 		float cuota = ((capital*(interes/12))/(100*(1-(1+(interes/(12*100))-(plazo*12)))));
 		
 		calculoMensualidad.setText(df.format(cuota)+"");
+		
+	}
+	
+	private void calcularTotal() {
+		
+		
 		
 	}
 

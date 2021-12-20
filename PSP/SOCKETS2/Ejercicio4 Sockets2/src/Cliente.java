@@ -12,13 +12,14 @@ public class Cliente {
     private String server;
     private int port;
 
+    //Constructor del cliente con el puerto y la GUI.
     Cliente(String server, int port, ClienteGUI gui) {
         this.server = server;
         this.port = port;
         this.gui = gui;
     }
 
-
+    //Metodo que inicia el cliente con el socket, la entrada, la salida y inicia el hilo de escucha.
     public boolean iniciar() {
         try {
             socket = new Socket(server, port);
@@ -41,26 +42,13 @@ public class Cliente {
         return true;
     }
 
-    private void mostrar(String msg) {
-        gui.append(msg);
-    }
-
+    //Metodo que envia un mensaje al servidor
     void enviarMensaje(String msg) {
         salida.println(msg);
     }
 
-    void desconectar() {
-        try {
-            entrada.close();
-            salida.close();
-            socket.close();
-        }
-        catch(Exception e) {}
 
-        gui.falloConexion();
-
-    }
-
+    //Hilo que recibe mensaje y se los envia al GUI.
     class Escuchar extends Thread {
 
         public void run() {
@@ -70,8 +58,6 @@ public class Cliente {
                         gui.append(msg);
                 }
                 catch(IOException e) {
-                    gui.falloConexion();
-                    break;
                 }
             }
         }

@@ -12,6 +12,7 @@ public class Cliente {
     private String server;
     private int port;
 
+    //Constructor cliente
     Cliente(String server, int port, ClienteGUI gui) {
         this.server = server;
         this.port = port;
@@ -20,6 +21,7 @@ public class Cliente {
 
 
     public boolean iniciar() {
+        //Crear socket cliente
         try {
             socket = new Socket(server, port);
         }
@@ -30,6 +32,7 @@ public class Cliente {
         String msg = "Introduce un año";
         mostrar(msg);
 
+        //Se crea el socket, el PrintStream y el DataInputStream
         try
         {
             entrada = new DataInputStream(socket.getInputStream());
@@ -37,22 +40,24 @@ public class Cliente {
         }
         catch (IOException eIO) {
         }
-
+        //Crear metodo que escucha los mensajes
         Escuchar escuchar = new Escuchar();
         escuchar.start();
 
         return true;
     }
 
+    //Muestra el mensaje en la pantalla
     private void mostrar(String msg) {
         gui.append(msg + "\n");
     }
 
+    //Envia mensaje al servidor
     void enviarMensaje(String msg) {
         salida.println(msg);
     }
 
-
+    //Hilo que lee constantemente del servidor
     class Escuchar extends Thread {
 
         public void run() {
